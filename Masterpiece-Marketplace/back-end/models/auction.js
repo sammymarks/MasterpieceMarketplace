@@ -1,6 +1,6 @@
 const { Schema } = require("mongoose");
 
-const UserSchema = new Schema(
+const AuctionSchema = new Schema(
     {
         artistSeller: { type: Schema.Types.ObjectId, ref: 'User', required: true },
         title: { type: String, required: true },
@@ -17,4 +17,4 @@ const UserSchema = new Schema(
     { timestamps: true }
 )
 
-module.exports = UserSchema
+module.exports = AuctionSchema
