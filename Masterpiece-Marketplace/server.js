@@ -33,7 +33,7 @@ app.use(cors());
 //end middleware
 
 
-//-------CRUD-------
+//-------CRUD------- 
 //Index
 app.get("/", (req, res) => res.send("This is Index"));
 
@@ -66,7 +66,7 @@ app.put("/auctions/:id", auctionController.putUpdate)
 app.get("/bids", bidController.getAll);
 app.get("/bids/:id", bidController.getByID);
 app.get("/bids/user/:userid", bidController.getByUserID)
-app.post("/users/create", userController.postCreate)
+app.post("/users/create", bidController.postCreate)
 
 
 
