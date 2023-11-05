@@ -7,7 +7,7 @@ const ArtworkSchema = new Schema(
         description: { type: String, required: true },
         genre: { type: String, required: true },
         materials: [{ type: String, required: true }],
-        creationDate: { type: Date, required: true },
+        creationYear: { type: String, required: true },
         imageURLs: [{ type: String, required: true }],
 
     },

@@ -4,7 +4,7 @@ const BidSchema = new Schema(
     {
         auction: { type: Schema.Types.ObjectId, ref: 'Auction', required: true },
         user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-        bidUSD: { type: Number, required: true },
+        bidUSD: { type: String, required: true },
     },
     { timestamps: true }
 )

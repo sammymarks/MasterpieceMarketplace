@@ -9,7 +9,7 @@ const AuctionSchema = new Schema(
         artworkIncluded: [{ type: Schema.Types.ObjectId, ref: 'Artwork', required: false }],
         startTime: { type: Date, required: true },
         endTime: { type: Date, required: true },
-        reservePriceUSD: { type: Number, required: true },
+        reservePriceUSD: { type: String, required: true },
         isResolved: { type: Boolean, required: true },
         isTransactionComplete: { type: Boolean, required: true },
 
