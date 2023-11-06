@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
 import Nav from './Nav'
 
 const Header = () => {
+  
   return (
     <div className='Header'>
-      <div>This is Header</div>
+      <img id='logo' src="../../logo.png" alt="Logo" className="header-logo" />
+
       <Nav />
     </div>
   );

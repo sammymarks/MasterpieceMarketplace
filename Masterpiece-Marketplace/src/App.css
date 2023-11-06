@@ -1,42 +1,74 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+
+
+
+body {
+  background-color: #580147;
+  color: antiquewhite;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* header styling */
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00335f; 
+  color: #fff;
+  padding: 10px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  z-index: 1000; 
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#logo {
+  max-width: 100px; 
+  max-height: 60px; 
+  margin-right: 20px
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+
+/* hamburger styling */
+.hamburger-icon {
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+.menu-links {
+  display: none;
 }
 
-.card {
-  padding: 2em;
+.menu-links.open {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  position: absolute;
+  top: 55px; 
+  right: 25px;
+  padding: 20px;
+}
+.menu-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 10px 0;
+}
+.menu-links a:hover {
+  color: #f233e8; /* Adjust the color as needed */
 }
 
-.read-the-docs {
-  color: #888;
+
+/* footer styling */
+
+
+Footer {
+
 }
