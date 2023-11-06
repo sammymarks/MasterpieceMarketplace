@@ -11,6 +11,7 @@
 body {
   background-color: #580147;
   color: antiquewhite;
+  overflow-x: hidden; 
 }
 
 /* header styling */
@@ -28,7 +29,7 @@ body {
   z-index: 1000; 
 }
 #logo {
-  max-width: 100px; 
+  max-width: 150px; 
   max-height: 60px; 
   margin-right: 20px
 }
@@ -36,6 +37,7 @@ body {
 
 /* hamburger styling */
 .hamburger-icon {
+  user-select: none;
   display: block;
   cursor: pointer;
   font-size: 24px;
@@ -51,7 +53,7 @@ body {
   flex-direction: column;
   background-color: #333;
   position: absolute;
-  top: 55px; 
+  top: 69px; 
   right: 25px;
   padding: 20px;
 }
@@ -91,4 +93,16 @@ body {
 
 
 /* footer styling */
+.Footer {
+  color: #f38cb0;
+  background: #af0441;
+  border-color: #eb5f91;
+  display: flex;
+  padding: 10px; 
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+}
+  
 
