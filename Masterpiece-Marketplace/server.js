@@ -1,12 +1,14 @@
-const express = require("express");
-const db = require('./back-end/db');
-const logger = require("morgan");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+import express from 'express';
+import logger from "morgan";
+// import db from "./db/"
+import bodyParser from 'body-parser';
+import cors from "cors"
+
+let db = ('mongodb+srv://admin:0000@cluster0.4bkeksa.mongodb.net/')
 
 //-------Imports-------
 //Schemas
-const { User, Artwork, Auction, Bid} = require(`./back-end/models/index`)
+// import { User, Artwork, Auction, Bid} from './back-end/models/index.js'
 
 // //Controllers
 
@@ -40,46 +42,46 @@ app.use(cors());
 app.get("/", (req, res) => res.send("This is Index"));
 
 //User
-app.get("/users", userController.getAll);
-app.get("/users/:id", userController.getByID);
-app.get("/users/:username", userController.getByUsername)
-app.get("/users/artists/:search", userController.searchArtist)
+// app.get("/users", userController.getAll);
+// app.get("/users/:id", userController.getByID);
+// app.get("/users/:username", userController.getByUsername)
+// app.get("/users/artists/:search", userController.searchArtist)
 
-app.post("/users/create", userController.postCreate)
-app.put("/users/:id", userController.putUpdate)
-app.delete("/users/:id", userController.deleteDelete)
-
-
-//Artwork
-app.get("/artworks", artworkController.getAll);
-app.get("/artworks/:id", artworkController.getByID);
-app.get("/artworks/:search", artworkController.getSearch)
-app.get("/artworks/user/:userid", artworkController.getByUserID)
-
-app.post("/artworks/create", artworkController.postCreate)
-app.put("/artworks/:id", artworkController.putUpdate)
-app.delete("/artworks/:id", artworkController.deleteDelete)
+// app.post("/users/create", userController.postCreate)
+// app.put("/users/:id", userController.putUpdate)
+// app.delete("/users/:id", userController.deleteDelete)
 
 
-//Auction
-app.get("/auctions", auctionController.getAll);
-app.get("/auctions/:id", auctionController.getByID);
-app.get("/auctions/:search", auctionController.getSearch)
-app.get("/auctions/user/:userid", auctionController.getByUserID)
+// //Artwork
+// app.get("/artworks", artworkController.getAll);
+// app.get("/artworks/:id", artworkController.getByID);
+// app.get("/artworks/:search", artworkController.getSearch)
+// app.get("/artworks/user/:userid", artworkController.getByUserID)
 
-app.post("/auctions/create", auctionController.postCreate)
-app.put("/auctions/:id", auctionController.putUpdate)
-app.delete("/auctions/:id", auctionController.deleteDelete)
+// app.post("/artworks/create", artworkController.postCreate)
+// app.put("/artworks/:id", artworkController.putUpdate)
+// app.delete("/artworks/:id", artworkController.deleteDelete)
 
 
-//Bid
-app.get("/bids", bidController.getAll);
-app.get("/bids/:id", bidController.getByID);
-app.get("/bids/user/:userid", bidController.getByUserID)
-app.get("/bids/auction/:auctionid", bidController.getByAuctionID)
+// //Auction
+// app.get("/auctions", auctionController.getAll);
+// app.get("/auctions/:id", auctionController.getByID);
+// app.get("/auctions/:search", auctionController.getSearch)
+// app.get("/auctions/user/:userid", auctionController.getByUserID)
 
-app.post("/users/create", bidController.postCreate)
-app.delete("/bids/:id", bidController.deleteDelete)
+// app.post("/auctions/create", auctionController.postCreate)
+// app.put("/auctions/:id", auctionController.putUpdate)
+// app.delete("/auctions/:id", auctionController.deleteDelete)
+
+
+// //Bid
+// app.get("/bids", bidController.getAll);
+// app.get("/bids/:id", bidController.getByID);
+// app.get("/bids/user/:userid", bidController.getByUserID)
+// app.get("/bids/auction/:auctionid", bidController.getByAuctionID)
+
+// app.post("/users/create", bidController.postCreate)
+// app.delete("/bids/:id", bidController.deleteDelete)
 
 
 
