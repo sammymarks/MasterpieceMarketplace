@@ -23,7 +23,7 @@ const main = async () => {
         username: "BlenVanGogh",
         password: "ears",
         address: "12 10th St, Zundert, Netherlands",
-        profilePic: "https://en.wikipedia.org/wiki/Zundert#/media/File:P1040677Beeld_Vincent_en_Theo_van_Gogh.JPG",
+        profilePic: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg/800px-Vincent_van_Gogh_-_Self-Portrait_-_Google_Art_Project_%28454045%29.jpg",
         isAdmin: false,
         isArtist: true,
         artistDescription: "I am GOAT and deeply troubled"

@@ -66,5 +66,29 @@ body {
 }
 
 
+
+
+/* search styling */
+.search-results-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto; 
+  justify-content: center;
+}
+
+.search-results-grid-item {
+  background-color: #333333bc;
+  padding: 15px; /* Adjust the padding to increase the size of #333 card */
+  margin-bottom: 25px;
+  border-radius: 10px;
+  width: 300px;
+  height: 400px;
+}
+
+.search-results-grid-item>img {
+  max-width: 200px;
+}
+
+
 /* footer styling */
 

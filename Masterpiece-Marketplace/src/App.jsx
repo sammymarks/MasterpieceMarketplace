@@ -25,25 +25,18 @@ function App() {
     <div className='App'>
      <UserContext.Provider
         value={{
-          loggedInUser,
-          setLoggedInUser,
-          userArtwork,
-          setUserArtwork,
-          userAuctions,
-          setUserAuctions,
-          userBids,
-          setUserBids,
-          detailsArtwork,
-          setDetailsArtwork,
-          detailsAuctions,
-          setDetailsAuctions,
-          detailsArtists,
-          setDetailsArtists,
+          loggedInUser, setLoggedInUser,
+          userArtwork, setUserArtwork,
+          userAuctions, setUserAuctions,
+          userBids, setUserBids,
+          detailsArtwork, setDetailsArtwork,
+          detailsAuctions, setDetailsAuctions,
+          detailsArtists, setDetailsArtists,
         }}
       >
-      <Header />
-      <Main />
-      <Footer />
+        <Header />
+        <Main />
+        <Footer />
       </UserContext.Provider>
     </div>
   )
