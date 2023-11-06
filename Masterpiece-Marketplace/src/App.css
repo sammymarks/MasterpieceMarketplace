@@ -77,16 +77,28 @@ body {
 }
 
 .search-results-grid-item {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 75px 1fr;
+  grid-template-areas: 
+  "image title-one"
+  "image title-two"
+  "image description";
+  
   background-color: #333333bc;
   padding: 15px; /* Adjust the padding to increase the size of #333 card */
   margin-bottom: 25px;
   border-radius: 10px;
   width: 300px;
-  height: 400px;
 }
 
-.search-results-grid-item>img {
+.search-results-image {
+  grid-area: image;
   max-width: 200px;
+}
+
+.search-results-title-one {
+  grid-area: title-one;
 }
 
 
