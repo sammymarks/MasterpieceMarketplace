@@ -4,7 +4,7 @@
 // reference a to be defined Artwork schema
 
 
-const { User, Artwork, Auction, Bid } = require('../models/index'))
+const { User, Artwork, Auction, Bid } = require('../models/index')
 
 module.exports = {
     getAll,
