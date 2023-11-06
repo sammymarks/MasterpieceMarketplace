@@ -4,22 +4,19 @@ const logger = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-// let db = ('mongodb+srv://admin:0000@cluster0.4bkeksa.mongodb.net/')
-
 //-------Imports-------
 //Schemas
-// import { User, Artwork, Auction, Bid} from './back-end/models/index.js'
+// const { User, Artwork, Auction, Bid} = require('./models/index')
+const { User, Artwork, Auction, Bid } = require('./models/index')
 
-// //Controllers
+//Controllers
 
-// const userController = require("./controllers/UserControllers")
-// const buildController = require('./controllers/BuildControllers')
-// const bikeController = require('./controllers/PartsControllers/BikeControllers')
-// const accessoryController = require('./controllers/PartsControllers/AccessoryControllers')
-// const rackController = require('./controllers/PartsControllers/RackControllers')
-// const seatController = require('./controllers/PartsControllers/SeatControllers')
-// const trailerController = require('./controllers/PartsControllers/TrailerControllers')
-// const storageController = require('./controllers/PartsControllers/StorageControllers')
+const userController = require("./controllers/UserControllers")
+const artworkController = require("./controllers/ArtworkControllers")
+const auctionController = require("./controllers/AuctionControllers")
+const bidController = require("./controllers/BidControllers")
+
+
 
 
 
@@ -42,7 +39,7 @@ app.use(cors());
 app.get("/", (req, res) => res.send("This is Index"));
 
 //User
-// app.get("/users", userController.getAll);
+app.get("/users", userController.getAll);
 // app.get("/users/:id", userController.getByID);
 // app.get("/users/:username", userController.getByUsername)
 // app.get("/users/artists/:search", userController.searchArtist)
@@ -53,7 +50,7 @@ app.get("/", (req, res) => res.send("This is Index"));
 
 
 // //Artwork
-// app.get("/artworks", artworkController.getAll);
+app.get("/artworks", artworkController.getAll);
 // app.get("/artworks/:id", artworkController.getByID);
 // app.get("/artworks/:search", artworkController.getSearch)
 // app.get("/artworks/user/:userid", artworkController.getByUserID)
@@ -64,7 +61,7 @@ app.get("/", (req, res) => res.send("This is Index"));
 
 
 // //Auction
-// app.get("/auctions", auctionController.getAll);
+app.get("/auctions", auctionController.getAll);
 // app.get("/auctions/:id", auctionController.getByID);
 // app.get("/auctions/:search", auctionController.getSearch)
 // app.get("/auctions/user/:userid", auctionController.getByUserID)
@@ -75,7 +72,7 @@ app.get("/", (req, res) => res.send("This is Index"));
 
 
 // //Bid
-// app.get("/bids", bidController.getAll);
+app.get("/bids", bidController.getAll);
 // app.get("/bids/:id", bidController.getByID);
 // app.get("/bids/user/:userid", bidController.getByUserID)
 // app.get("/bids/auction/:auctionid", bidController.getByAuctionID)
