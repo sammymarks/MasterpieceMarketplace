@@ -120,7 +120,7 @@ export default function Discover () {
 
 
 
-    const [searchCategory, setSearchCategory] = useState('none')
+    const [searchCategory, setSearchCategory] = useState('')
     const [searchText, setSearchText] = useState('')
     const [searchResultsMessage, setSearchResultsMessage] = useState('')
     const [searchResultsArray, setSearchResultsArray] = useState("searcharray placeholder")
@@ -210,16 +210,16 @@ export default function Discover () {
             <div className='search-results-message'>{searchResultsMessage}</div>
             <div className='search-results-container'>
                 {tempArtistArray.map((item, index) => (
-            <div 
-                className='search-results-grid-item' 
-                key={index} 
-                // onClick={() => goToGridItem(index)}
-            >
-                <h2 className='search-results-title'>{item.username}</h2>
-                <p className='search-results-description'>{item.artistDescription}</p>
-                <img className='search-results-image' src={item.profilePic}></img>
-            </div>
-        ))}
+                    <div 
+                        className='search-results-grid-item' 
+                        key={index} 
+                        // onClick={() => goToGridItem(index)}
+                    >
+                        <h2 className='search-results-title'>{item.username}</h2>
+                        <p className='search-results-description'>{item.artistDescription}</p>
+                        <img className='search-results-image' src={item.profilePic}></img>
+                    </div>
+                ))}
             </div>
             {/* <ArtistSearchResults />
             <ArtworkSearchResults />
