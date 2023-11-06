@@ -1,17 +1,12 @@
-import React from 'react';
+import React from 'react'
+import Nav from './Nav'
 
 const Header = () => {
   return (
-    <header>
-      <nav>
-        <div className="logo">Your Logo</div>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div className='Header'>
+      <div>This is Header</div>
+      <Nav />
+    </div>
   );
 };
 
