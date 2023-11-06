@@ -1,10 +1,10 @@
-import express from 'express';
-import logger from "morgan";
-// import db from "./db/"
-import bodyParser from 'body-parser';
-import cors from "cors"
+const express = require("express");
+const db = require("./db");
+const logger = require("morgan");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-let db = ('mongodb+srv://admin:0000@cluster0.4bkeksa.mongodb.net/')
+// let db = ('mongodb+srv://admin:0000@cluster0.4bkeksa.mongodb.net/')
 
 //-------Imports-------
 //Schemas

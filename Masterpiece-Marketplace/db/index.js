@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 mongoose
-    .connect('mongodb+srv://admin:0000@cluster0.4bkeksa.mongodb.net/')
-    .then(() => {
+.connect('mongodb://127.0.0.1:27017/masterpiecemarketplace')
+.then(() => {
         console.log('Successfully connected to MongoDB.')
     })
     .catch(e => {
