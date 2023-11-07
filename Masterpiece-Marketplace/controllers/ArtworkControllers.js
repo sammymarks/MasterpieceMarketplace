@@ -27,11 +27,11 @@ async function getAll (req,res) {
 
 async function getByID (req,res) {
     try {
-        // const artworks = await Artwork.find()
+        const artworks = await Artwork.findById(req.params.id)
         res.status(201).send(artworks)
     } catch (e) {
         return res.status(500).json({ error: e.message })
-    } 
+    }
 }
 
 async function getSearch (req,res) {
@@ -70,11 +70,18 @@ async function putUpdate (req,res) {
     }
 }
 
+
 async function deleteDelete (req,res) {
     try {
-        // const artwork = await Artwork.findById(req.params.id)
-        res.status(201).send(artwork)
+        const artworkID = req.params.id; 
+        const deletedArtwork = await Artwork.findByIdAndDelete(artworkID);
+
+        if (!deletedArtwork) {
+            return res.status(404).json({ message: 'Artwork not found for deletion' });
+        }
+
+        res.status(200).json({ message: 'Artwork deleted successfully' });
     } catch (e) {
-        return res.status(500).json({ error: e.message })
+        return res.status(500).json({ error: e.message });
     }
 }
