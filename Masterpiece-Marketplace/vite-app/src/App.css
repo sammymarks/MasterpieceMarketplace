@@ -68,7 +68,9 @@ body {
 }
 
 
-
+.Main {
+  overflow: scroll;
+}
 
 /* search styling */
 .search-results-container {
@@ -81,7 +83,7 @@ body {
 .search-results-grid-item {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 75px 1fr;
+  grid-template-columns: 100px 1fr;
   grid-template-areas: 
   "image title-one"
   "image title-two"
@@ -96,11 +98,22 @@ body {
 
 .search-results-image {
   grid-area: image;
-  max-width: 200px;
+  max-width: 80%;
+  align-self: center;
+  justify-self: center;
 }
 
 .search-results-title-one {
   grid-area: title-one;
+}
+
+.search-results-title-two {
+  grid-area: title-two;
+}
+
+.search-results-description {
+  grid-area: description;
+  font-size: 12px;
 }
 
 
