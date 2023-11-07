@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { BASE_DB_URL } from '../../globals'
-import { useUserContext } from '../App';
+import { useUserContext } from '../../App';
 
 
 
@@ -17,13 +17,13 @@ export default function AuctionsSearchResults (props) {
 
 
 
-    const getUsernameByID = async (id) => {
-        console.log("id", id)
-        const url = `${BASE_DB_URL}users/${id}`
-        console.log("url", url)
-        const response = await axios.get(url)
+    // const getUsernameByID = async (id) => {
+    //     console.log("id", id)
+    //     const url = `${BASE_DB_URL}users/${id}`
+    //     console.log("url", url)
+    //     const response = await axios.get(url)
         
-    } 
+    // } 
 
     const getUsernames = async () => {
         console.log("getUsernameRunning")
@@ -49,7 +49,7 @@ export default function AuctionsSearchResults (props) {
     }
 
     const getAuctionSearch = async () => {
-        const url = `${BASE_DB_URL}auctions`
+        const url = `${BASE_DB_URL}auctions/search/${searchText}`
         const response = await axios.get(url)
         setAuctionResults(response.data)
         // auctionResults ? setAuctionResultsLoaded(true) : null

@@ -5,7 +5,7 @@ import axios from 'axios'
 import ArtistSearchResults from './ArtistSearchResults'
 import ArtworkSearchResults from './ArtworkSearchResults'
 import AuctionSearchResults from './AuctionsSearchResults'
-import { useUserContext } from '../App';
+import { useUserContext } from '../../App';
 
 
 export default function Discover () {

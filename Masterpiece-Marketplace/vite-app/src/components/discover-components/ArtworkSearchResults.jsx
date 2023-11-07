@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { BASE_DB_URL } from '../../globals'
-import { useUserContext } from '../App';
+import { useUserContext } from '../../App';
 
 
 export default function ArtworkSearchResults (props) {
@@ -13,7 +13,8 @@ export default function ArtworkSearchResults (props) {
     const [searchText, setSearchText] = useState(null)
 
     const getArtworkSearch = async () => {
-        const url = `${BASE_DB_URL}artworks`
+        const url = `${BASE_DB_URL}artworks/search/${searchText}`
+        console.log(url)
         const response = await axios.get(url)
         setArtworkResults(response.data)
     }

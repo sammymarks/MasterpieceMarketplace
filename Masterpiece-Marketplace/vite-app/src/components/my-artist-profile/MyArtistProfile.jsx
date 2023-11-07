@@ -5,7 +5,7 @@ import CreateArtwork from './CreateArtwork'
 import CreateAuction from './CreateAuction'
 import CreatedArtwork from './CreatedArtwork'
 import CreatedAuctions from './CreatedAuctions'
-import { useUserContext } from '../App';
+import { useUserContext } from '../../App';
 
 
 export default function MyArtistProfile () {
