@@ -18,6 +18,7 @@ function App() {
   const [detailsArtwork, setDetailsArtwork] = useState(null);
   const [detailsAuctions, setDetailsAuctions] = useState(null);
   const [detailsArtists, setDetailsArtists] = useState(null);
+  
 
   
   
