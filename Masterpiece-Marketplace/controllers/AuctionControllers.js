@@ -27,10 +27,12 @@ async function getAll (req,res) {
 
 async function getByID (req,res) {
     try {
-        const auctions = await Auction.findById(req.params.id)
-        res.status(201).send(auctions)
+        const userID = req.params.id;
+        const auctions = await Auction.find({ userID });
+
+        res.status(200).json(auctions);
     } catch (e) {
-        return res.status(500).json({ error: e.message })
+        return res.status(500).json({ error: e.message });
     }
 }
 
@@ -71,10 +73,20 @@ async function postCreate (req,res) {
 
 async function putUpdate (req,res) {
     try {
-        // const auction = await Auction.findById(req.params.id)
-        res.status(201).send(auction)
+        const auctionID = req.params.id;
+        const auction = await Auction.findById(auctionID);
+
+        if (!auction) {
+            return res.status(404).json({ message: 'Auction not found for update' });
+        }
+
+        auction.set(req.body);
+        await auction.save();
+
+        res.status(200).json({ message: 'Auction updated successfully', auction });
     } catch (e) {
-        return res.status(500).json({ error: e.message })
+
+        return res.status(500).json({ error: e.message });
     }
 }
 
