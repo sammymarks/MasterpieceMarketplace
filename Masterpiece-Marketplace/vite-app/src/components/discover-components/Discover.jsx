@@ -5,9 +5,12 @@ import axios from 'axios'
 import ArtistSearchResults from './ArtistSearchResults'
 import ArtworkSearchResults from './ArtworkSearchResults'
 import AuctionSearchResults from './AuctionsSearchResults'
+import { useUserContext } from '../App';
 
 
 export default function Discover () {
+
+    const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
     
     // const tempArtistArray = [
     //     {

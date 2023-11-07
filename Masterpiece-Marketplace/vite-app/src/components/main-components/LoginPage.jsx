@@ -1,9 +1,13 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
+import { useUserContext } from '../App';
 
 
 export default function LoginPage () {
+
+  const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')

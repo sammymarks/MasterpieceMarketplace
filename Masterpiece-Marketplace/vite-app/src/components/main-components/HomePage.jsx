@@ -3,9 +3,10 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import LoginPage from './LoginPage'
 import SignUpPage from './SignUpPage'
-
+import { useUserContext } from '../App';
 
 export default function HomePage () {
+  const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
 
     //api calls for images
 
