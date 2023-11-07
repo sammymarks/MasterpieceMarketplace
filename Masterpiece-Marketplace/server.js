@@ -6,7 +6,6 @@ const cors = require("cors");
 
 //-------Imports-------
 //Schemas
-// const { User, Artwork, Auction, Bid} = require('./models/index')
 const { User, Artwork, Auction, Bid } = require('./models/index')
 
 //Controllers
@@ -40,45 +39,45 @@ app.get("/", (req, res) => res.send("This is Index"));
 
 //User
 app.get("/users", userController.getAll);
-// app.get("/users/:id", userController.getByID);
+app.get("/users/:id", userController.getByID);
 // app.get("/users/:username", userController.getByUsername)
 // app.get("/users/artists/:search", userController.searchArtist)
 
 // app.post("/users/create", userController.postCreate)
 // app.put("/users/:id", userController.putUpdate)
-// app.delete("/users/:id", userController.deleteDelete)
+app.delete("/users/:id", userController.deleteDelete)
 
 
 // //Artwork
 app.get("/artworks", artworkController.getAll);
-// app.get("/artworks/:id", artworkController.getByID);
+app.get("/artworks/:id", artworkController.getByID);
 // app.get("/artworks/:search", artworkController.getSearch)
 // app.get("/artworks/user/:userid", artworkController.getByUserID)
 
 // app.post("/artworks/create", artworkController.postCreate)
 // app.put("/artworks/:id", artworkController.putUpdate)
-// app.delete("/artworks/:id", artworkController.deleteDelete)
+app.delete("/artworks/:id", artworkController.deleteDelete)
 
 
 // //Auction
 app.get("/auctions", auctionController.getAll);
-// app.get("/auctions/:id", auctionController.getByID);
+app.get("/auctions/:id", auctionController.getByID);
 // app.get("/auctions/:search", auctionController.getSearch)
 // app.get("/auctions/user/:userid", auctionController.getByUserID)
 
 // app.post("/auctions/create", auctionController.postCreate)
 // app.put("/auctions/:id", auctionController.putUpdate)
-// app.delete("/auctions/:id", auctionController.deleteDelete)
+app.delete("/auctions/:id", auctionController.deleteDelete)
 
 
 // //Bid
 app.get("/bids", bidController.getAll);
-// app.get("/bids/:id", bidController.getByID);
+app.get("/bids/:id", bidController.getByID);
 // app.get("/bids/user/:userid", bidController.getByUserID)
 // app.get("/bids/auction/:auctionid", bidController.getByAuctionID)
 
 // app.post("/users/create", bidController.postCreate)
-// app.delete("/bids/:id", bidController.deleteDelete)
+app.delete("/bids/:id", bidController.deleteDelete)
 
 
 
