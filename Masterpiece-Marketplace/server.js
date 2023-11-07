@@ -46,8 +46,8 @@ app.get("/users/:id", userController.getByID);
 // app.get("/users/:username", userController.getByUsername)
 // app.get("/users/artists/:search", userController.searchArtist)
 
-// app.post("/users/create", userController.postCreate)
-// app.put("/users/:id", userController.putUpdate)
+app.post("/users/create", userController.postCreate)
+// app.put("/users/:id/update", userController.putUpdate)
 app.delete("/users/:id", userController.deleteDelete)
 
 
@@ -57,7 +57,7 @@ app.get("/artworks/:id", artworkController.getByID);
 // app.get("/artworks/:search", artworkController.getSearch)
 // app.get("/artworks/user/:userid", artworkController.getByUserID)
 
-// app.post("/artworks/create", artworkController.postCreate)
+app.post("/artworks/create", artworkController.postCreate)
 // app.put("/artworks/:id", artworkController.putUpdate)
 app.delete("/artworks/:id", artworkController.deleteDelete)
 
@@ -68,7 +68,7 @@ app.get("/auctions/:id", auctionController.getByID);
 // app.get("/auctions/:search", auctionController.getSearch)
 // app.get("/auctions/user/:userid", auctionController.getByUserID)
 
-// app.post("/auctions/create", auctionController.postCreate)
+app.post("/auctions/create", auctionController.postCreate)
 // app.put("/auctions/:id", auctionController.putUpdate)
 app.delete("/auctions/:id", auctionController.deleteDelete)
 
@@ -79,7 +79,7 @@ app.get("/bids/:id", bidController.getByID);
 // app.get("/bids/user/:userid", bidController.getByUserID)
 // app.get("/bids/auction/:auctionid", bidController.getByAuctionID)
 
-// app.post("/users/create", bidController.postCreate)
+app.post("/bids/create", bidController.postCreate)
 app.delete("/bids/:id", bidController.deleteDelete)
 
 
