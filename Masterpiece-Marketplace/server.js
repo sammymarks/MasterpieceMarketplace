@@ -29,7 +29,10 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(logger("dev"));
 app.use(bodyParser.json());
-app.use(cors());
+//https://chat.openai.com/c/c844fdf9-cab5-484e-bac4-bc6dde44edb9
+app.use(cors({
+    origin: 'http://localhost:5173'
+}));
 //end middleware
 
 

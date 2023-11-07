@@ -13,7 +13,7 @@ const main = async () => {
         username: "Kevin-Admin",
         password: "ilovedbs",
         address: "123 S Admin St, New York, NY, 10001, USA",
-        profilePic: "https://imgur.com/gallery/mxV0wm7",
+        profilePic: "https://www.solving-finance.com/wp-content/uploads/2022/09/37ff2e_cc4a781482b94bfab2a12f4a6c4ebc67mv2.png",
         isAdmin: true,
         isArtist: true,
         artistDescription: "I art because I admin"
