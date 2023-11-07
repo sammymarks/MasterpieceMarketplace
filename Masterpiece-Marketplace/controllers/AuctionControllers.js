@@ -62,7 +62,7 @@ async function getByUserID(req, res) {
 
 async function postCreate (req,res) {
     try {
-        // const auction = await Auction.findById(req.params.id)
+        const auction = await Auction.create(req.body)
         res.status(201).send(auction)
     } catch (e) {
         return res.status(500).json({ error: e.message })

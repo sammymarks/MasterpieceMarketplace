@@ -54,7 +54,7 @@ async function getByUserID (req,res) {
 
 async function postCreate (req,res) {
     try {
-        // const artwork = await Artwork.findById(req.params.id)
+        const artwork = await Artwork.create(req.body)
         res.status(201).send(artwork)
     } catch (e) {
         return res.status(500).json({ error: e.message })

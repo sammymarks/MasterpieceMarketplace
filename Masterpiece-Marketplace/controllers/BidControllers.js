@@ -48,7 +48,7 @@ async function getByAuctionID (req,res) {
 
 async function postCreate (req,res) {
     try {
-        // const bid = await Bid.findById(req.params.id)
+        const bid = await Bid.create(req.body)
         res.status(201).send(bid)
     } catch (e) {
         return res.status(500).json({ error: e.message })
