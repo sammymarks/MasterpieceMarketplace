@@ -1,20 +1,19 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
-import { useUserContext } from '../App';
+import { useUserContext } from '../../App';
 import axios from 'axios'
 import { BASE_DB_URL } from '../../globals'
 
 
-export default function ArtistSearchResults (props) {
-    console.log(BASE_DB_URL)
-    
+export default function ArtistSearchResults (props) {    
     const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
     
     const [artistResults, setArtistResults] = useState(null)
     const [searchText, setSearchText] = useState(null)
 
     const getArtistSearch = async () => {
-        const url = `${BASE_DB_URL}users`
+        const url = `${BASE_DB_URL}users/artist-search/${searchText}`
+        console.log(url)
         const response = await axios.get(url)
         setArtistResults(response.data)
     }
