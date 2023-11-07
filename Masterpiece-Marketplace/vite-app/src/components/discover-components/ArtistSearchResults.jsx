@@ -1,9 +1,13 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
+import { useUserContext } from '../App';
 
 
 export default function ArtistSearchResults (props) {
+
+    const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    
     const [artistResults, setArtistResuls] = useState(null)
     const [searchText, setSearchText] = useState(null)
 
