@@ -1,7 +1,5 @@
-//For Artwork:
-// add getbyID controller function here
-// add getbyID route in server.js
-// reference a to be defined Artwork schema
+// const UserSchema = require('./user')
+// const User = mongoose.model('user', UserSchema)
 
 
 const { User, Artwork, Auction, Bid } = require('../models/index')
@@ -38,8 +36,19 @@ async function getByID (req,res) {
 
 async function getSearch (req,res) {
     try {
-        // const auctions = await Auction.find()
-        res.status(201).send(auctions)
+        
+        let searchText = req.params.search
+
+        const searchAuctions = await Auction.find({$or:[
+            {"title": { "$regex" : searchText, "$options" : "i"}},
+            {"description": { "$regex" : searchText, "$options" : "i"}},
+        ]})
+            .populate([{path:'artistSeller', model: User}, {path:'artworkIncluded', model: Artwork}])
+            .exec()
+
+        // const searchArtist = await Auction.find()
+
+        res.status(201).send(searchAuctions)
     } catch (e) {
         return res.status(500).json({ error: e.message })
     } 

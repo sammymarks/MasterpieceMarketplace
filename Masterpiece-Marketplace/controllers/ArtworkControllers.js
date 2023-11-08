@@ -36,7 +36,15 @@ async function getByID (req,res) {
 
 async function getSearch (req,res) {
     try {
-        // const artworks = await Artwork.find()
+        let text = req.params.search
+        const artworks = await Artwork.find({$or:[
+            {"title": { "$regex" : text, "$options" : "i"}},
+            {"description": { "$regex" : text, "$options" : "i"}},
+            {"genre": { "$regex" : text, "$options" : "i"}},
+            {"creationYear": { "$regex" : text, "$options" : "i"}},
+        ]})            
+        .populate({path:'artist', model: User})
+        .exec()
         res.status(201).send(artworks)
     } catch (e) {
         return res.status(500).json({ error: e.message })
