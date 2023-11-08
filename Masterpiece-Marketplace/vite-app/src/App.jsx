@@ -18,6 +18,7 @@ function App() {
   const [detailsArtwork, setDetailsArtwork] = useState(null);
   const [detailsAuctions, setDetailsAuctions] = useState(null);
   const [detailsArtists, setDetailsArtists] = useState(null);
+  const [isFollowing, setIsFollowing] = useState(false);
   
 
   
@@ -33,6 +34,7 @@ function App() {
           detailsArtwork, setDetailsArtwork,
           detailsAuctions, setDetailsAuctions,
           detailsArtists, setDetailsArtists,
+          isFollowing, setIsFollowing,
         }}
       >
         <Header />
