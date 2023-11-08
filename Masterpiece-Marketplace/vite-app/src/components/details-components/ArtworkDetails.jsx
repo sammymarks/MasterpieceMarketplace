@@ -1,7 +1,9 @@
 import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
-import { useUserContext } from '../App';
+import { useUserContext } from '../../App';
+import { BASE_DB_URL } from '../../globals'
+
 
 
 export default function ArtworkDetails () {
@@ -17,7 +19,8 @@ export default function ArtworkDetails () {
         async function getArtworkDetails() {
           try {
             // for artwork details
-            const artworkResponse = await axios.get(`/api/artworks/${artworkDetailID}`);
+            const url = `${BASE_DB_URL}artworks/${artworkDetailID}`
+            const artworkResponse = await axios.get(url);
             setArtwork(artworkResponse.data);
     
             // for  artist details
@@ -35,7 +38,7 @@ export default function ArtworkDetails () {
 
     return (
         !artwork ? 
-        <div>Loading</div>
+        <div>Loading Artwork Details</div>
         :
         <div className="ArtworkDetails">
           {artwork ? (

@@ -7,10 +7,22 @@ import { useUserContext } from '../../App';
 
 export default function ArtworkSearchResults (props) {
 
-    const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const { loggedInUser, userArtwork, userAuctions, userBids, artworkDetailID, setArtworkDetailID, artistDetailID, setArtistDetailID, } = useUserContext();
+    const navigate = useNavigate();
+
 
     const [artworkResults, setArtworkResults] = useState(null)
     const [searchText, setSearchText] = useState(null)
+
+    const goToArtworkDetail= (id) => {
+        setArtworkDetailID(id)
+        navigate('/artwork-details')
+    }
+
+    const goToArtistDetail = (id) => {
+        setArtistDetailID(id)
+        navigate('/artist-details')
+    }
 
     const getArtworkSearch = async () => {
         const url = `${BASE_DB_URL}artworks/search/${searchText}`
@@ -32,17 +44,17 @@ export default function ArtworkSearchResults (props) {
         !artworkResults ?
         <div>LOADING</div>
         :
-        <div className='ArtistSearchResults'> 
+        <div className='ArtworkSearchResults'> 
         {
             artworkResults.map((item, index) => (
                 <div 
                     className='search-results-grid-item artwork-results-grid-item' 
                     key={item._id} 
-                    // onClick={() => goToGridItem(index)}
+                    onClick={() => goToArtworkDetail(item._id)}
                 >
                     <img className='search-results-image' src={item.imageURLs[0]}></img>
                     <div className='search-results-title'>{item.title}</div>
-                    <div className='search-results-artist-name'>{item.artist.username}</div>
+                    <div className='search-results-artist-name' onClick={() => goToArtistDetail(item.artist._id)}>{item.artist.username}</div>
                     <div className='search-results-description'>{item.description}</div>
                 </div>
             ))
