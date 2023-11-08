@@ -40,8 +40,8 @@ app.get("/users/:id", userController.getByID);
 // app.get("/users/:username", userController.getByUsername)
 app.get("/users/artist-search/:search", userController.searchArtist)
 
-// app.post("/users/create", userController.postCreate)
-// app.put("/users/:id", userController.putUpdate)
+app.post("/users/create", userController.postCreate)
+app.put("/users/update/:id/", userController.putUpdate)
 app.delete("/users/:id", userController.deleteDelete)
 
 
@@ -49,10 +49,9 @@ app.delete("/users/:id", userController.deleteDelete)
 app.get("/artworks", artworkController.getAll);
 app.get("/artworks/:id", artworkController.getByID);
 app.get("/artworks/search/:search", artworkController.getSearch)
-// app.get("/artworks/user/:userid", artworkController.getByUserID)
-
-// app.post("/artworks/create", artworkController.postCreate)
-// app.put("/artworks/:id", artworkController.putUpdate)
+app.get("/artworks/users/:userid", artworkController.getByUserID)
+app.post("/artworks/create", artworkController.postCreate)
+app.put("/artworks/update/:id/", artworkController.putUpdate)
 app.delete("/artworks/:id", artworkController.deleteDelete)
 
 
@@ -60,20 +59,21 @@ app.delete("/artworks/:id", artworkController.deleteDelete)
 app.get("/auctions", auctionController.getAll);
 app.get("/auctions/:id", auctionController.getByID);
 app.get("/auctions/search/:search", auctionController.getSearch)
-// app.get("/auctions/user/:userid", auctionController.getByUserID)
+app.get("/auctions/users/:userid", auctionController.getByUserID)
 
-// app.post("/auctions/create", auctionController.postCreate)
-// app.put("/auctions/:id", auctionController.putUpdate)
+app.post("/auctions/create", auctionController.postCreate)
+app.put("/auctions/update/:id/", auctionController.putUpdate)
 app.delete("/auctions/:id", auctionController.deleteDelete)
 
 
 // //Bid
 app.get("/bids", bidController.getAll);
 app.get("/bids/:id", bidController.getByID);
-// app.get("/bids/user/:userid", bidController.getByUserID)
+app.get("/bids/users/:userid", bidController.getByID)
 // app.get("/bids/auction/:auctionid", bidController.getByAuctionID)
 
-// app.post("/users/create", bidController.postCreate)
+app.put("/bids/:id/update", bidController.putUpdate)
+app.post("/bids/create", bidController.postCreate)
 app.delete("/bids/:id", bidController.deleteDelete)
 
 

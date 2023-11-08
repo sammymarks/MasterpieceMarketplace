@@ -53,7 +53,7 @@ async function searchArtist (req,res) {
 
 async function postCreate (req,res) {
     try {
-        // const user = await User.findById(req.params.id)
+        const user = await User.create(req.body)
         res.status(201).send(user)
     } catch (e) {
         return res.status(500).json({ error: e.message })
@@ -62,10 +62,20 @@ async function postCreate (req,res) {
 
 async function putUpdate (req,res) {
     try {
-        // const user = await User.findById(req.params.id)
-        res.status(201).send(user)
+        const userID = req.params.id;
+        const user = await User.findById(userID);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found for update' });
+        }
+
+        user.set(req.body);
+        await user.save();
+
+        res.status(200).json({ message: 'User updated successfully', user });
     } catch (e) {
-        return res.status(500).json({ error: e.message })
+
+        return res.status(500).json({ error: e.message });
     }
 }
 
