@@ -88,12 +88,39 @@ body {
   "image title-one"
   "image title-two"
   "image description";
-  
   background-color: #333333bc;
   padding: 15px; /* Adjust the padding to increase the size of #333 card */
   margin-bottom: 25px;
   border-radius: 10px;
   width: 300px;
+}
+
+.auction-results-grid-item {
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 100px 1fr;
+  grid-template-areas: 
+  "image title"
+  "image artist-name"
+  "image description"
+  "image included";
+}
+
+.artwork-results-grid-item {
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 100px 1fr;
+  grid-template-areas: 
+  "image title"
+  "image artist-name"
+  "image description"
+}
+
+.artist-results-grid-item {
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 100px 1fr;
+  grid-template-areas: 
+  "image artist-name"
+  "image location"
+  "image description"
 }
 
 .search-results-image {
@@ -103,12 +130,12 @@ body {
   justify-self: center;
 }
 
-.search-results-title-one {
-  grid-area: title-one;
+.search-results-title {
+  grid-area: title;
 }
 
-.search-results-title-two {
-  grid-area: title-two;
+.search-results-artist-name {
+  grid-area: artist-name;
 }
 
 .search-results-description {
@@ -116,6 +143,14 @@ body {
   font-size: 12px;
 }
 
+.search-results-included {
+  grid-area: included;
+  font-size: 12px;
+}
+.search-results-artist-location {
+  grid-area: location;
+  font-size: 12px;
+}
 
 /* footer styling */
 .Footer {

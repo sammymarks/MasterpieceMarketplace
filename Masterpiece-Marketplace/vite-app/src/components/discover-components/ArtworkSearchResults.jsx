@@ -14,7 +14,6 @@ export default function ArtworkSearchResults (props) {
 
     const getArtworkSearch = async () => {
         const url = `${BASE_DB_URL}artworks/search/${searchText}`
-        console.log(url)
         const response = await axios.get(url)
         setArtworkResults(response.data)
     }
@@ -24,9 +23,10 @@ export default function ArtworkSearchResults (props) {
         getArtworkSearch()
     }, [searchText])
 
-    console.log("searchText", searchText)
-    console.log(artworkResults)
-
+    if (artworkResults) {
+        console.log("searchText", searchText)
+        console.log(artworkResults)
+    }
 
     return (
         !artworkResults ?
@@ -36,13 +36,13 @@ export default function ArtworkSearchResults (props) {
         {
             artworkResults.map((item, index) => (
                 <div 
-                    className='search-results-grid-item' 
-                    key={index} 
+                    className='search-results-grid-item artwork-results-grid-item' 
+                    key={item._id} 
                     // onClick={() => goToGridItem(index)}
                 >
                     <img className='search-results-image' src={item.imageURLs[0]}></img>
-                    <div className='search-results-title-one'>{item.title}</div>
-                    <div className='search-results-title-two'>{item.artist}</div>
+                    <div className='search-results-title'>{item.title}</div>
+                    <div className='search-results-artist-name'>{item.artist.username}</div>
                     <div className='search-results-description'>{item.description}</div>
                 </div>
             ))

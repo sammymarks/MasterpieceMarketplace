@@ -23,9 +23,10 @@ export default function ArtistSearchResults (props) {
         getArtistSearch()
     }, [searchText])
 
-    console.log("searchText", searchText)
-    console.log(artistResults)
-
+    if (artistResults) {
+        console.log("searchText", searchText)
+        console.log(artistResults)
+    }
 
     return (
         !artistResults ?
@@ -35,12 +36,13 @@ export default function ArtistSearchResults (props) {
         {
             artistResults.map((item, index) => (
                 <div 
-                    className='search-results-grid-item' 
-                    key={index} 
+                    className='search-results-grid-item artist-results-grid-item' 
+                    key={item._id} 
                     // onClick={() => goToGridItem(index)}
                 >
                     <img className='search-results-image' src={item.profilePic}></img>
-                    <div className='search-results-title-one'>{item.username}</div>
+                    <div className='search-results-artist-name'>{item.username}</div>
+                    <div className='search-results-artist-location'>{item.address}</div>
                     <div className='search-results-description'>{item.artistDescription}</div>
                 </div>
             ))
