@@ -35,6 +35,7 @@ export default function AuctionsSearchResults (props) {
         <div>LOADING</div>
         :
         <div className='auction-search-results'> 
+        {console.log("mapping")}
         {
             auctionResults.map((item, index) => (
                 <div 
