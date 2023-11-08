@@ -6,10 +6,10 @@ import { useUserContext } from '../App';
 
 export default function ArtworkDetails () {
 
-    const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const { loggedInUser, userArtwork, userAuctions, userBids, artworkDetailID, setArtworkDetailID, } = useUserContext();
     const { artworkId } = useParams(); 
     const [artwork, setArtwork] = useState(null);
-    const [artist, setArtist] = useState(null);
+    // const [artist, setArtist] = useState(null);
     const [isBidding, setIsBidding] = useState(false);
 
     useEffect(() => {
@@ -17,12 +17,12 @@ export default function ArtworkDetails () {
         async function getArtworkDetails() {
           try {
             // for artwork details
-            const artworkResponse = await axios.get(`/api/artworks/${artworkId}`);
+            const artworkResponse = await axios.get(`/api/artworks/${artworkDetailID}`);
             setArtwork(artworkResponse.data);
     
             // for  artist details
-            const artistResponse = await axios.get(`/api/artists/${artworkResponse.data.artist}`);
-            setArtist(artistResponse.data);
+            // const artistResponse = await axios.get(`/api/artists/${artworkResponse.data.artist}`);
+            // setArtist(artistResponse.data);
           } catch (error) {
             console.error(error);
           }
@@ -30,10 +30,13 @@ export default function ArtworkDetails () {
 
         getArtworkDetails();
 
-    }, [artworkId]);
+    }, [artworkDetailID]);
 
 
     return (
+        !artwork ? 
+        <div>Loading</div>
+        :
         <div className="ArtworkDetails">
           {artwork ? (
             <div>
