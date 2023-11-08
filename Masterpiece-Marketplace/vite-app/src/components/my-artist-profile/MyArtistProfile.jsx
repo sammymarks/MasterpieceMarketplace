@@ -11,17 +11,36 @@ import { useUserContext } from '../../App';
 export default function MyArtistProfile () {
 
     const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const [viewWindow, setViewWindow] = useState(<CreatedArtwork />)
+    const navigate = useNavigate()
+
+
 
     return (
         <div className='MyArtistProfile'> 
-            <div> Welcome USERPLACEHOLDER </div>
-            <button className='profile-create-btn'>Create Artwork</button>
-            <button className='profile-create-btn'>Create Auction</button>
             
-            <CreateArtwork />
-            <CreateAuction />
-            <CreatedArtwork />
-            <CreatedAuctions />
+            <div> Welcome USERPLACEHOLDER </div>
+            
+            <div className='profile-category'>Create</div>
+            <button 
+                className='profile-create-btn' 
+                onClick={() => navigate('/create-artwork')}
+            >Upload New Artwork</button>
+            <button 
+                className='profile-create-btn'
+                onClick={() => navigate('/create-auction')}
+            >Create New Auction</button>
+
+            <div className='profile-category'>View and Edit</div>
+            <button 
+                className='profile-create-btn' 
+                onClick={() => setViewWindow(<CreatedArtwork/>)}
+            >My Artwork</button>
+            <button 
+                className='profile-create-btn'
+                onClick={() => setViewWindow(<CreatedAuctions/>)}
+            >My Auctions</button>
+            {viewWindow}
         </div>
     )
 }

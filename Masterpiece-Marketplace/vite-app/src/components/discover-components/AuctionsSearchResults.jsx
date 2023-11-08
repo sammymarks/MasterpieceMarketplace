@@ -52,7 +52,7 @@ export default function AuctionsSearchResults (props) {
         {
             auctionResults.map((item, index) => (
                 <div 
-                    className='search-results-grid-item auction-results-grid-item' 
+                    className='grid-item-card auction-results-grid-item' 
                     key={item._id} 
                     onClick={() => goToAuctionDetail(item._id)}
                 >

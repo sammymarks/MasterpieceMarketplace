@@ -48,7 +48,7 @@ export default function ArtworkSearchResults (props) {
         {
             artworkResults.map((item, index) => (
                 <div 
-                    className='search-results-grid-item artwork-results-grid-item' 
+                    className='grid-item-card artwork-results-grid-item' 
                     key={item._id} 
                     onClick={() => goToArtworkDetail(item._id)}
                 >
