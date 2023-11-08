@@ -36,7 +36,7 @@ export default function ArtistSearchResults (props) {
         {
             artistResults.map((item, index) => (
                 <div 
-                    className='search-results-grid-item artist-results-grid-item' 
+                    className='grid-item-card artist-results-grid-item' 
                     key={item._id} 
                     // onClick={() => goToGridItem(index)}
                 >

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useUserContext } from '../App';
 
 const Nav = () => {
+  const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+
   const [menuOpen, setMenuOpen] = useState(false)
 
   const toggleMenu = () => {
@@ -15,9 +18,15 @@ const Nav = () => {
 
       <div className={`menu-links ${menuOpen ? 'open' : ''}`}>
         <Link to="/">Home</Link>
-        <Link to="/profile">My Profile</Link>
-        <Link to="/artist-dashboard">Artist Dashboard</Link>
-        <Link to="/buyer-dashboard">Buyer Dashboard</Link>
+        {loggedInUser ?
+          <>
+            <Link to="/profile">My Profile</Link>
+            <Link to="/artist-dashboard">Artist Dashboard</Link>
+            <Link to="/buyer-dashboard">Buyer Dashboard</Link>  
+          </>                
+          :
+          null
+        }
         <Link to="/discover">Discover</Link>
       </div>
     </div>
