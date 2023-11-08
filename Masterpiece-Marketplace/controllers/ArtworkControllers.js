@@ -19,6 +19,8 @@ module.exports = {
 async function getAll (req,res) {
     try {
         const artworks = await Artwork.find()
+        .populate({path:'artist', model: User})
+        .exec()
         res.status(201).send(artworks)
     } catch (e) {
         return res.status(500).json({ error: e.message })
@@ -28,6 +30,8 @@ async function getAll (req,res) {
 async function getByID (req,res) {
     try {
         const artworks = await Artwork.findById(req.params.id)
+        .populate({path:'artist', model: User})
+        .exec()
         res.status(201).send(artworks)
     } catch (e) {
         return res.status(500).json({ error: e.message })

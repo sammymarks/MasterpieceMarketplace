@@ -130,6 +130,11 @@ body {
 
 .search-results-artist-name {
   grid-area: artist-name;
+  z-index: 1;
+}
+
+.search-results-artist-name:hover {
+  color:darkcyan
 }
 
 .search-results-description {

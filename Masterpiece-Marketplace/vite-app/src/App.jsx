@@ -20,7 +20,7 @@ function App() {
   const [detailsArtists, setDetailsArtists] = useState(null);
   const [isFollowing, setIsFollowing] = useState(false);
   const [artworkDetailID, setArtworkDetailID] = useState(null)
-  const [artistkDetailID, setArtistkDetailID] = useState(null)
+  const [artistDetailID, setArtistDetailID] = useState(null)
   const [auctionDetailID, setAuctionDetailID] = useState(null)
 
   
@@ -40,7 +40,7 @@ function App() {
           detailsArtists, setDetailsArtists,
           isFollowing, setIsFollowing,
           artworkDetailID, setArtworkDetailID,
-          artistkDetailID, setArtistkDetailID,
+          artistDetailID, setArtistDetailID,
           auctionDetailID, setAuctionDetailID
         }}
       >

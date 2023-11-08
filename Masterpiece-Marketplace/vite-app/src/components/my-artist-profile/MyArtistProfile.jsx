@@ -14,7 +14,10 @@ export default function MyArtistProfile () {
 
     return (
         <div className='MyArtistProfile'> 
-            <div> I am MyArtistProfile </div>
+            <div> Welcome USERPLACEHOLDER </div>
+            <button className='profile-create-btn'>Create Artwork</button>
+            <button className='profile-create-btn'>Create Auction</button>
+            
             <CreateArtwork />
             <CreateAuction />
             <CreatedArtwork />
