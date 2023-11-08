@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { BASE_DB_URL } from '../../globals';
 
 export default function CreateBid({ auctionId }) {
     const [bidAmount, setBidAmount] = useState('');
