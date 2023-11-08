@@ -7,9 +7,46 @@ import { useUserContext } from '../App';
 export default function AuctionDetails () {
 
     const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const { auctionId } = useParams();
+
+
+    const [auctionDetails, setAuctionDetails] = useState({
+        title: 'Auction Title',
+        description: 'Auction description goes here...',
+        coverImageURL: 'https://auction-cover.jpg', 
+      });
+
+      useEffect(() => {
+        async function getAuctionDetails() {
+          try {
+            const response = await axios.get(`/api/auctions/${auctionId}`); //replace 
+            const auctionData = response.data;
+    
+            // Update the auctionDetails state 
+            setAuctionDetails({
+              title: auctionData.title,
+              description: auctionData.description,
+              coverImageURL: auctionData.coverImageURL,
+              // add other auction details if any...
+            });
+          } catch (error) {
+            console.error(error);
+          }
+        }
+    
+    
+        getAuctionDetails();
+      }, [auctionId]);
+    
 
 
     return (
-        <div className='AuctionDetails'> I am AuctionDetails </div>
-    )
+        <div className='AuctionDetails'>
+      <h2>{auctionDetails.title}</h2>
+      <img src={auctionDetails.coverImageURL} alt={auctionDetails.title} />
+      <p>{auctionDetails.description}</p>
+      {/* Display other auction details... */}
+    </div>
+  );
 }
+       
