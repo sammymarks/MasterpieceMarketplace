@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { useUserContext } from '../App';
+import CreateBid from './CreateBid';
 
 
 export default function AuctionDetails () {
@@ -22,7 +23,7 @@ export default function AuctionDetails () {
             const response = await axios.get(`/api/auctions/${auctionId}`); //replace 
             const auctionData = response.data;
     
-            // Update the auctionDetails state 
+            // auctionDetails state 
             setAuctionDetails({
               title: auctionData.title,
               description: auctionData.description,
@@ -45,7 +46,14 @@ export default function AuctionDetails () {
       <h2>{auctionDetails.title}</h2>
       <img src={auctionDetails.coverImageURL} alt={auctionDetails.title} />
       <p>{auctionDetails.description}</p>
-      {/* Display other auction details... */}
+      {/*  add other auction details if any ... */}
+
+      {/* CreateBid component */}
+      {loggedInUser && (
+        <CreateBid auctionId={auctionId} />
+      )}
+
+
     </div>
   );
 }
