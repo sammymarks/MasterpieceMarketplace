@@ -9,7 +9,8 @@ import { useUserContext } from '../../App';
 export default function AuctionsSearchResults (props) {
 
     const { loggedInUser, userArtwork, userAuctions, userBids, auctionDetailID, setAuctionDetailID } = useUserContext();
-    
+    const navigate = useNavigate();
+
     const [auctionResults, setAuctionResults] = useState(null)
     const [searchText, setSearchText] = useState(null)
 

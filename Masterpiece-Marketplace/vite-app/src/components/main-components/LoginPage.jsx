@@ -2,23 +2,28 @@ import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { useUserContext } from '../../App';
+import { BASE_DB_URL } from '../../globals';
 
 
 export default function LoginPage () {
 
-  const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const { loggedInUser, setLoggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const navigate = useNavigate();
 
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleLogin = () => {
-    // login, req to server
+    const handleLogin = async () => {
+      // login, req to server
+      const url = `${BASE_DB_URL}users/654badb65a14574641fbc8df`
+      const response = await axios.get(url)
+      setLoggedInUser(response.data)
+      navigate('/discover')
+      // success, redirect to another page
+    }
 
-    // success, redirect to another page
-
-  }
-
+    console.log(loggedInUser)
 
     return (
         <div className='LoginPage'>

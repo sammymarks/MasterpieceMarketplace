@@ -7,7 +7,7 @@ import { BASE_DB_URL } from '../../globals'
 
     export default function UserInfo() {
 
-        const { loggedInUser } = useUserContext()
+        const { loggedInUser, setIsLoggedInUser } = useUserContext()
         const [isEditing, setIsEditing] = useState(false)
         const [username, setUsername] = useState(loggedInUser.username)
         const [password, setPassword] = useState(loggedInUser.password)
@@ -20,6 +20,9 @@ import { BASE_DB_URL } from '../../globals'
           try {
             await axios.put(`${BASE_DB_URL}users/update/${loggedInUser._id}/`, { username, password })
             setIsEditing(true)
+
+            //API get for updated userInfo
+            //setIsLoggedInUser(updated userInfo)
           } catch (error) {
             console.error(error)
           }
