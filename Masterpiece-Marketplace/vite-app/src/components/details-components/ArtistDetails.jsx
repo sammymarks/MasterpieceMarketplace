@@ -2,11 +2,11 @@ import { useState, useEffect, useContext } from 'react'
 import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { useUserContext } from '../../App';
-
+import { BASE_DB_URL } from '../../globals'; 
 
 export default function ArtistDetails () {
 
-    const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const { loggedInUser, userArtwork, userAuctions, userBids, artistDetailID, setArtistDetailID, isFollowing, setIsFollowing } = useUserContext();
     const [artistDetails, setArtistDetails] = useState({
         name: 'Artist Name',
         profilePic: 'https://default-profile-pic.jpg',
@@ -14,15 +14,17 @@ export default function ArtistDetails () {
       });
 
       
-      const [isFollowing, setIsFollowing] = useState(false);
+      // const [isFollowing, setIsFollowing] = useState(false);
 
 
       useEffect(() => {
 
         const getArtistDetails = async () => {
             try {
-              const response = await axios.get('/api/artist-details'); // Replace w/ API endpoint
-              const artistData = response.data; // if API response provides artist details
+              const url = `${BASE_DB_URL}/artists/${artistDetailID}`; 
+              const response = await axios.get(url);
+              const artistData = response.data;
+
       
               
               // Update the artistDetails state
@@ -31,18 +33,21 @@ export default function ArtistDetails () {
                 profilePic: artistData.profilePic,
                 bio: artistData.bio,
               });
+
+              // setIsFollowing(loggedInUser.followedArtists.includes(artistData._id)); 
             } catch (error) {
               console.error(error);
             }
           };
         getArtistDetails();
-        }, []);
+        }, [artistDetailID, setIsFollowing, loggedInUser]);
 
         // function for follow/unfollow if used 
         const toggleFollow = async () => {
             try {
-              // API request to update follow status
-              await axios.post('/api/follow-artist', { artistId: artistDetails.id }); // Replace with  API endpoint!
+              // API update follow status
+              const url = `${BASE_DB_URL}/follow-artist/${artistDetailID}`;
+              // await axios.post(url, { follow: !isFollowing }); // toggle follow status 
               // Update isFollowing
               setIsFollowing(!isFollowing);
             } catch (error) {
