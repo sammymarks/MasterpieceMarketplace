@@ -82,12 +82,6 @@ body {
 
 .search-results-grid-item {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 100px 1fr;
-  grid-template-areas: 
-  "image title-one"
-  "image title-two"
-  "image description";
   background-color: #333333bc;
   padding: 15px; /* Adjust the padding to increase the size of #333 card */
   margin-bottom: 25px;
@@ -154,15 +148,14 @@ body {
 
 /* footer styling */
 .Footer {
-  color: #f38cb0;
-  background: #af0441;
-  border-color: #eb5f91;
-  display: flex;
-  padding: 10px; 
-  position: absolute;
+  background-color: rgb(169, 47, 169);
+  padding: 20px;
   bottom: 0;
-  width: 100%;
-  
+  text-align: center;
+  height: 3em;
 }
-  
+
+.Main{
+  margin-top: 40px;
+}
 
