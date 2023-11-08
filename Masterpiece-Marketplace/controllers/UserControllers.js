@@ -39,8 +39,13 @@ async function getByUsername (req,res) {
 
 async function searchArtist (req,res) {
     try {
-        // const user = await User.findById(req.params.id)
-        res.status(201).send(user)
+        let text = req.params.search
+        const artists = await User.find({$or:[
+            {"username": { "$regex" : text, "$options" : "i"}},
+            {"artistDescription": { "$regex" : text, "$options" : "i"}},
+            {"address": { "$regex" : text, "$options" : "i"}},
+        ]})
+        res.status(201).send(artists)
     } catch (e) {
         return res.status(500).json({ error: e.message })
     }
