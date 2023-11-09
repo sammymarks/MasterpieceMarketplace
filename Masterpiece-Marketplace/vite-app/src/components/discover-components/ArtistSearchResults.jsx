@@ -11,7 +11,7 @@ export default function ArtistSearchResults (props) {
     const navigate = useNavigate();
 
     
-    const [artistResults, setArtistResults] = useState(null)
+    const [artistResults, setArtistResults] = useState([])
     // const [searchText, setSearchText] = useState(null)
 
     const goToArtistDetail = (id) => {
@@ -26,19 +26,22 @@ export default function ArtistSearchResults (props) {
         setArtistResults(response.data)
     }
 
-    setSearchText(props.text)
 
     useEffect(() => {
+        setSearchText(props.text)
         getArtistSearch()
     }, [searchText])
 
-    if (artistResults) {
+    console.log("new artistresults log", artistResults)
+
+
+    if (artistResults && artistResults.length>0) {
         console.log("searchText", searchText)
         console.log(artistResults)
     }
 
     return (
-        !artistResults ?
+        artistResults.length == 0 ?
         <div>LOADING</div>
         :
         <div className='ArtistSearchResults'> 

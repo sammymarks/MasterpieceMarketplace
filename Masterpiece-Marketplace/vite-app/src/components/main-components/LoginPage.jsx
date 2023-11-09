@@ -22,24 +22,18 @@ export default function LoginPage() {
             const loggedInUser = users.find(
                 (user) => user.username === username && user.password === password
             )
-
             if (loggedInUser) {
                 setLoggedInUser(loggedInUser)
                 console.log(loggedInUser)
                 navigate('/discover')
-
-
-
-
-
             } else {
-
                 console.error('Invalid username or password')
                 alert('Invalid username or password')
             }
         } catch (error) {
             console.error('Error during login:', error)
         }
+
     }
 
 

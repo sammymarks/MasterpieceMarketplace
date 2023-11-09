@@ -21,6 +21,7 @@ async function getAll (req,res) {
 
 async function getByID (req,res) {
     try {
+        console.log("getbyIDcalled")
         const user = await User.findById(req.params.id)
         res.status(201).send(user)
     } catch (e) {
@@ -28,14 +29,21 @@ async function getByID (req,res) {
     }
 }
 
-async function getByUsername (req,res) {
+async function getByUsername(req, res) {
     try {
-        // const user = await User.findById(req.params.id)
-        res.status(201).send(user)
-    } catch (e) {
-        return res.status(500).json({ error: e.message })
+        console.log("getbyUsername")
+        console.log(req)
+        const currentUser = req.params.username
+        const name = await User.findOne({username: currentUser}); 
+      if (name) {
+        res.status(200).json(name);
+      } else {
+        res.status(404).json({ message: 'Username not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
-}
+  }
 
 async function searchArtist (req,res) {
     try {
