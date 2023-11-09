@@ -11,7 +11,7 @@ export default function ArtworkSearchResults (props) {
     const navigate = useNavigate();
 
 
-    const [artworkResults, setArtworkResults] = useState(null)
+    const [artworkResults, setArtworkResults] = useState([])
     // const [searchText, setSearchText] = useState(null)
 
     const goToArtworkDetail= (id) => {
@@ -30,20 +30,20 @@ export default function ArtworkSearchResults (props) {
         setArtworkResults(response.data)
     }
 
-    setSearchText(props.text)
 
     useEffect(() => {
+        setSearchText(props.text)
         getArtworkSearch()
     }, [searchText])
 
 
-    if (artworkResults) {
+    if (artworkResults && artworkResults.length>0) {
         console.log("searchText", searchText)
         console.log(artworkResults)
     }
 
     return (
-        !artworkResults ?
+        !artworkResults.length ?
         <div>LOADING</div>
         :
         <div className='ArtworkSearchResults'> 
