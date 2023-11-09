@@ -22,6 +22,7 @@ function App() {
   const [artworkDetailID, setArtworkDetailID] = useState(null)
   const [artistDetailID, setArtistDetailID] = useState(null)
   const [auctionDetailID, setAuctionDetailID] = useState(null)
+  const [searchText, setSearchText] = useState(null)
 
   
 
@@ -41,7 +42,8 @@ function App() {
           isFollowing, setIsFollowing,
           artworkDetailID, setArtworkDetailID,
           artistDetailID, setArtistDetailID,
-          auctionDetailID, setAuctionDetailID
+          auctionDetailID, setAuctionDetailID,
+          searchText, setSearchText
         }}
       >
         <Header />
