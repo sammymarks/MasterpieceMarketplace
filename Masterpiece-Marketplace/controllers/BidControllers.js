@@ -7,7 +7,8 @@ module.exports = {
     getByBidID,
     deleteDelete,
     putUpdate,
-    getByUserID
+    getByUserID,
+    getByAuctionID
 }
 
 async function getAll (req,res) {
@@ -44,14 +45,18 @@ async function getByBidID (req,res) {
     }
 }
 
-// async function getByAuctionID (req,res) {
-//     try {
-//         // const bid = await Bid.findById(req.params.id)
-//         res.status(201).send(bid)
-//     } catch (e) {
-//         return res.status(500).json({ error: e.message })
-//     }
-// }
+async function getByAuctionID (req,res) {
+    try {
+        const bids = await Bid.find({"auction" : req.params.auctionid})
+        .populate([{path:'auction', model: Auction}, {path:'user', model: User}])
+        .exec()
+
+
+        res.status(201).send(bids)
+    } catch (e) {
+        return res.status(500).json({ error: e.message })
+    }
+}
 
 async function postCreate (req,res) {
     try {

@@ -14,6 +14,7 @@ export default function LoginPage() {
     const [password, setPassword] = useState('')
 
     const handleLogin = async () => {
+
         try {
             const response = await axios.get('http://localhost:3001/users')
             const users = response.data
