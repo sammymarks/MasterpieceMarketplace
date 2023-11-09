@@ -17,15 +17,21 @@ import { BASE_DB_URL } from '../../globals'
         }
       
         const handleSaveClick = async () => {
-          try {
-            await axios.put(`${BASE_DB_URL}users/update/${loggedInUser._id}/`, { username, password })
-            setIsEditing(true)
-
-            //API get for updated userInfo
-            //setIsLoggedInUser(updated userInfo)
-          } catch (error) {
-            console.error(error)
-          }
+            try {
+                // Make a PUT request to update the user's information
+                await axios.put(`${BASE_DB_URL}users/update/${loggedInUser._id}/`, { username, password });
+            
+                // Fetch the updated user information from the API
+                const response = await axios.get(`${BASE_DB_URL}users/${loggedInUser._id}`);
+                const updatedUserInfo = response.data;
+            
+                // Update the loggedInUser and set isEditing to false
+                setIsLoggedInUser(updatedUserInfo);
+                setIsEditing(false);
+                console.log(LoggedInUser)
+              } catch (error) {
+                console.error(error);
+              }
         }
       
         return (
@@ -57,7 +63,7 @@ import { BASE_DB_URL } from '../../globals'
               )}
             </div>
             {isEditing ? (
-              <button onClick={handleSaveClick}>Save</button>
+              <button onClick={() => { handleSaveClick(); setIsLoggedInUser(); }}>Save</button>
             ) : (
               <button onClick={handleEditClick}>Edit</button>
             )}

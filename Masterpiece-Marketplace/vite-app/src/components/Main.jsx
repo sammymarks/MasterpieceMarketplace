@@ -10,6 +10,7 @@ import SignUpPage from './main-components/SignUpPage';
 import ArtworkDetails from './details-components/ArtworkDetails';
 import ArtistDetails from './details-components/ArtistDetails'
 import AuctionDetails from './details-components/AuctionDetails'
+import CreateArtwork from './my-artist-profile/CreateArtwork';
 
 
 const Main = () => {
@@ -27,6 +28,8 @@ const Main = () => {
           <Route path="/profile" element={<UserProfile/>} />
           <Route path="/buyer-dashboard" element={<MyBuyerAuctions/>} />
           <Route path="/discover" element={<Discover/>}/>
+          <Route path="/create-artwork" element={<CreateArtwork/>}/>
+
         </Routes>
       </div>
   );
