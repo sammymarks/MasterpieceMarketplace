@@ -56,7 +56,6 @@ async function getSearch (req,res) {
 async function getByUserID (req,res) {
     try {
         const userID = req.params.userid;
-
         const auctions = await Auction.find({ "artistSeller" : userID });
 
         if (!auctions) {
