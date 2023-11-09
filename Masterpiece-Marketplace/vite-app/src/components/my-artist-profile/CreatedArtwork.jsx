@@ -34,7 +34,6 @@ export default function CreatedArtwork () {
                     <div 
                         className='user-artwork-grid-item grid-item-card' 
                         key={item._id} 
-                        onClick={() => goToArtworkDetail(item._id)}
                     >
                         <div className='user-artwork-title'>{item.title}</div>
                         <img className='user-artwork-image artist-profile-image' src={item.imageURLs[0]}></img>
