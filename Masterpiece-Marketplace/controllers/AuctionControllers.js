@@ -57,8 +57,8 @@ async function getSearch (req,res) {
 
 async function getByUserID(req, res) {
     try {
-        const userID = req.params.id;
-        const auctions = await Auction.find({ userId: userID });
+        const userID = req.params.userid;
+        const auctions = await Auction.find({ "artistSeller": userID });
 
         if (!auctions) {
             return res.status(404).json({ message: 'No auctions found for this user ID' });
