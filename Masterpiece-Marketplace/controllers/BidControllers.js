@@ -3,10 +3,11 @@ const { User, Artwork, Auction, Bid } = require('../models/index')
 
 module.exports = {
     getAll,
-    getByID,
     postCreate,
+    getByBidID,
     deleteDelete,
     putUpdate,
+    getByUserID
 }
 
 async function getAll (req,res) {
@@ -18,10 +19,15 @@ async function getAll (req,res) {
     } 
 }
 
-async function getByID (req,res) {
+async function getByUserID (req,res) {
     try {
-        const userID = req.params.id;
-        const bids = await Bid.find({ userID });
+        const userID = req.params.userid;
+
+        const bids = await Bid.find({ "user" : userID });
+
+        if (!bids) {
+            return res.status(404).json({ message: 'No bids found for this user ID' });
+        }
 
         res.status(200).json(bids);
     } catch (e) {
@@ -29,14 +35,14 @@ async function getByID (req,res) {
     }
 }
 
-// async function getByBidID (req,res) {
-//     try {
-//         // const bid = await Bid.findById(req.params.id)
-//         res.status(201).send(bid)
-//     } catch (e) {
-//         return res.status(500).json({ error: e.message })
-//     }
-// }
+async function getByBidID (req,res) {
+    try {
+        const bids = await Bid.findById(req.params.id)
+        res.status(201).send(bids)
+    } catch (e) {
+        return res.status(500).json({ error: e.message })
+    }
+}
 
 // async function getByAuctionID (req,res) {
 //     try {

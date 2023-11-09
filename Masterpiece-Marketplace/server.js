@@ -37,7 +37,7 @@ app.get("/", (req, res) => res.send("This is Index"));
 //User
 app.get("/users", userController.getAll);
 app.get("/users/:id", userController.getByID);
-// app.get("/users/:username", userController.getByUsername)
+app.get("/users/username/:username", userController.getByUsername)
 app.get("/users/artist-search/:search", userController.searchArtist)
 
 app.post("/users/create", userController.postCreate)
@@ -68,8 +68,8 @@ app.delete("/auctions/:id", auctionController.deleteDelete)
 
 // //Bid
 app.get("/bids", bidController.getAll);
-app.get("/bids/:id", bidController.getByID);
-app.get("/bids/users/:userid", bidController.getByID)
+app.get("/bids/:id", bidController.getByBidID);
+app.get("/bids/users/:userid", bidController.getByUserID)
 // app.get("/bids/auction/:auctionid", bidController.getByAuctionID)
 
 app.put("/bids/:id/update", bidController.putUpdate)

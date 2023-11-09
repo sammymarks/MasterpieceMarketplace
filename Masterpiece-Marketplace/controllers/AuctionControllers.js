@@ -25,12 +25,10 @@ async function getAll (req,res) {
 
 async function getByID (req,res) {
     try {
-        const userID = req.params.id;
-        const auctions = await Auction.find({ userID });
-
-        res.status(200).json(auctions);
+        const auctions = await Auction.findById(req.params.id)
+        res.status(201).send(auctions)
     } catch (e) {
-        return res.status(500).json({ error: e.message });
+        return res.status(500).json({ error: e.message })
     }
 }
 
@@ -55,10 +53,11 @@ async function getSearch (req,res) {
 }
 
 
-async function getByUserID(req, res) {
+async function getByUserID (req,res) {
     try {
-        const userID = req.params.id;
-        const auctions = await Auction.find({ userId: userID });
+        const userID = req.params.userid;
+
+        const auctions = await Auction.find({ "artistSeller" : userID });
 
         if (!auctions) {
             return res.status(404).json({ message: 'No auctions found for this user ID' });
