@@ -7,12 +7,12 @@ import { useUserContext } from '../../App';
 
 export default function ArtworkSearchResults (props) {
 
-    const { loggedInUser, userArtwork, userAuctions, userBids, artworkDetailID, setArtworkDetailID, artistDetailID, setArtistDetailID, } = useUserContext();
+    const { loggedInUser, userArtwork, userAuctions, userBids, artworkDetailID, setArtworkDetailID, artistDetailID, setArtistDetailID, searchText, setSearchText} = useUserContext();
     const navigate = useNavigate();
 
 
     const [artworkResults, setArtworkResults] = useState(null)
-    const [searchText, setSearchText] = useState(null)
+    // const [searchText, setSearchText] = useState(null)
 
     const goToArtworkDetail= (id) => {
         setArtworkDetailID(id)
@@ -30,10 +30,12 @@ export default function ArtworkSearchResults (props) {
         setArtworkResults(response.data)
     }
 
+    setSearchText(props.text)
+
     useEffect(() => {
-        setSearchText(props.text)
         getArtworkSearch()
     }, [searchText])
+
 
     if (artworkResults) {
         console.log("searchText", searchText)
