@@ -11,7 +11,7 @@ export default function AuctionsSearchResults (props) {
     const { loggedInUser, userArtwork, userAuctions, userBids, auctionDetailID, setAuctionDetailID, searchText, setSearchText } = useUserContext();
     const navigate = useNavigate();
 
-    const [auctionResults, setAuctionResults] = useState(null)
+    const [auctionResults, setAuctionResults] = useState([])
     // const [searchText, setSearchText] = useState(null)
 
 
@@ -32,20 +32,20 @@ export default function AuctionsSearchResults (props) {
         setAuctionResults(response.data)
     }
 
-    setSearchText(props.text)
 
     useEffect(() => {
+        setSearchText(props.text)
         getAuctionSearch()
     }, [searchText])
 
-    if (auctionResults) {
+    if (auctionResults && auctionResults.length>0) {
         console.log("searchText", searchText)
         console.log(auctionResults)
     }
 
 
     return (
-        !auctionResults ?
+        auctionResults.length == 0 ?
         <div>LOADING</div>
         :
         <div className='auction-search-results'> 
