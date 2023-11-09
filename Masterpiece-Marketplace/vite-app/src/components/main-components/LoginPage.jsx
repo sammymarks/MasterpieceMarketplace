@@ -16,7 +16,7 @@ export default function LoginPage () {
 
     const handleLogin = async () => {
       // login, req to server
-      const url = `${BASE_DB_URL}users/654cefefa0708da8bea39d81`
+      const url = `${BASE_DB_URL}users/654cf88917c3b02b79f52a06`
       const response = await axios.get(url)
       setLoggedInUser(response.data)
       navigate('/discover')

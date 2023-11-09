@@ -25,7 +25,10 @@ async function getAll (req,res) {
 
 async function getByID (req,res) {
     try {
-        const auctions = await Auction.findById(req.params.id)
+        const auctions = await Auction.findById(req.params.id).populate([{path:'artistSeller', model: User}, {path:'artworkIncluded', model: Artwork}])
+        .exec()
+        
+        
         res.status(201).send(auctions)
     } catch (e) {
         return res.status(500).json({ error: e.message })
