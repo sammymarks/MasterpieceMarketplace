@@ -3,11 +3,12 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import { useUserContext } from '../../App';
 import CreateBid from './CreateBid';
+import { BASE_DB_URL } from '../../globals';
 
 
 export default function AuctionDetails () {
 
-    const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const { loggedInUser, userArtwork, userAuctions, userBids, auctionDetailID, setAuctionDetailID, } = useUserContext();
     const { auctionId } = useParams();
 
 
@@ -20,7 +21,7 @@ export default function AuctionDetails () {
       useEffect(() => {
         async function getAuctionDetails() {
           try {
-            const response = await axios.get(`/api/auctions/${auctionId}`); //replace 
+            const response = await axios.get(`${BASE_DB_URL}auctions/${auctionDetailID}`);  
             const auctionData = response.data;
     
             // auctionDetails state 
@@ -28,7 +29,7 @@ export default function AuctionDetails () {
               title: auctionData.title,
               description: auctionData.description,
               coverImageURL: auctionData.coverImageURL,
-              // add other auction details if any...
+              
             });
           } catch (error) {
             console.error(error);
@@ -37,7 +38,7 @@ export default function AuctionDetails () {
     
     
         getAuctionDetails();
-      }, [auctionId]);
+      }, [auctionDetailID]);
     
 
 
@@ -46,7 +47,7 @@ export default function AuctionDetails () {
       <h2>{auctionDetails.title}</h2>
       <img src={auctionDetails.coverImageURL} alt={auctionDetails.title} />
       <p>{auctionDetails.description}</p>
-      {/*  add other auction details if any ... */}
+     
 
       {/* CreateBid component */}
       {loggedInUser && (

@@ -8,11 +8,11 @@ import { useUserContext } from '../../App';
 
 export default function AuctionsSearchResults (props) {
 
-    const { loggedInUser, userArtwork, userAuctions, userBids, auctionDetailID, setAuctionDetailID } = useUserContext();
+    const { loggedInUser, userArtwork, userAuctions, userBids, auctionDetailID, setAuctionDetailID, searchText, setSearchText } = useUserContext();
     const navigate = useNavigate();
 
     const [auctionResults, setAuctionResults] = useState(null)
-    const [searchText, setSearchText] = useState(null)
+    // const [searchText, setSearchText] = useState(null)
 
 
     const goToAuctionDetail= (id) => {
@@ -32,8 +32,9 @@ export default function AuctionsSearchResults (props) {
         setAuctionResults(response.data)
     }
 
+    setSearchText(props.text)
+
     useEffect(() => {
-        setSearchText(props.text)
         getAuctionSearch()
     }, [searchText])
 
@@ -52,7 +53,7 @@ export default function AuctionsSearchResults (props) {
         {
             auctionResults.map((item, index) => (
                 <div 
-                    className='search-results-grid-item auction-results-grid-item' 
+                    className='grid-item-card auction-results-grid-item' 
                     key={item._id} 
                     onClick={() => goToAuctionDetail(item._id)}
                 >

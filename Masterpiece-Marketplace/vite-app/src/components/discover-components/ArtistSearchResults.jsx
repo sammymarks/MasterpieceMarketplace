@@ -5,11 +5,19 @@ import axios from 'axios'
 import { BASE_DB_URL } from '../../globals'
 
 
+
 export default function ArtistSearchResults (props) {    
-    const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
+    const { loggedInUser, userArtwork, userAuctions, userBids, artworkDetailID, setArtworkDetailID, artistDetailID, setArtistDetailID, auctionDetailID, setAuctionDetailID, searchText, setSearchText } = useUserContext();
+    const navigate = useNavigate();
+
     
     const [artistResults, setArtistResults] = useState(null)
-    const [searchText, setSearchText] = useState(null)
+    // const [searchText, setSearchText] = useState(null)
+
+    const goToArtistDetail = (id) => {
+        setArtistDetailID(id)
+        navigate('/artist-details')
+    }
 
     const getArtistSearch = async () => {
         const url = `${BASE_DB_URL}users/artist-search/${searchText}`
@@ -18,8 +26,9 @@ export default function ArtistSearchResults (props) {
         setArtistResults(response.data)
     }
 
+    setSearchText(props.text)
+
     useEffect(() => {
-        setSearchText(props.text)
         getArtistSearch()
     }, [searchText])
 
@@ -36,9 +45,9 @@ export default function ArtistSearchResults (props) {
         {
             artistResults.map((item, index) => (
                 <div 
-                    className='search-results-grid-item artist-results-grid-item' 
+                    className='grid-item-card artist-results-grid-item' 
                     key={item._id} 
-                    // onClick={() => goToGridItem(index)}
+                    onClick={() => goToArtistDetail(item._id)}
                 >
                     <img className='search-results-image' src={item.profilePic}></img>
                     <div className='search-results-artist-name'>{item.username}</div>

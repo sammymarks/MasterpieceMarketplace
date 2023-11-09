@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { BASE_DB_URL } from '../../globals';
 
 export default function CreateBid({ auctionId }) {
     const [bidAmount, setBidAmount] = useState('');
@@ -8,11 +10,23 @@ export default function CreateBid({ auctionId }) {
 
 // POST request here 
 try {
+  const response = await axios.post(`${BASE_DB_URL}bids/create`, {
+    auctionId: auctionId,
+    amount: parseFloat(bidAmount), // number
+    userId: loggedInUser._id, 
+  });
+// response 
+  console.log('Bid placed successfully:', response.data);
+
+  //clear out input 
+  setBidAmount('');
+} catch (error) {
+  console.error('Error placing bid:', error);
+}
+}; 
+
     
-  } catch (error) {
-    console.error(error);
-  }
-};
+ 
 
 return (
     <div>

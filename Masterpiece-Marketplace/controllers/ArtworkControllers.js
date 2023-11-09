@@ -57,8 +57,10 @@ async function getSearch (req,res) {
 
 async function getByUserID (req,res) {
     try {
-        const userID = req.params.id;
-        const artworks = await Artwork.find({ userId: userID });
+        const userID = req.params.userid;
+        console.log(userID)
+
+        const artworks = await Artwork.find({ "artist" : userID });
 
         if (!artworks) {
             return res.status(404).json({ message: 'No artwork found for this user ID' });
