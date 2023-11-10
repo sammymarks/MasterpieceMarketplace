@@ -70,7 +70,7 @@ app.delete("/auctions/:id", auctionController.deleteDelete)
 app.get("/bids", bidController.getAll);
 app.get("/bids/:id", bidController.getByBidID);
 app.get("/bids/users/:userid", bidController.getByUserID)
-// app.get("/bids/auction/:auctionid", bidController.getByAuctionID)
+app.get("/bids/auctions/:auctionid", bidController.getByAuctionID)
 
 app.put("/bids/:id/update", bidController.putUpdate)
 app.post("/bids/create", bidController.postCreate)
