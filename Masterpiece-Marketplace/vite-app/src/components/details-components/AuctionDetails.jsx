@@ -43,16 +43,19 @@ export default function AuctionDetails () {
     getAuctionBids()
   }, [auctionDetailID]);
   
-  console.log("auctionDetails", auctionDetails)
-  console.log("auctionBids", auctionBids)
+  if (Object.keys(auctionDetails).length>0 && auctionBids) {
+    console.log("auctionDetails", auctionDetails)
+    console.log("auctionBids", auctionBids)
+  }
 
   return (
+    Object.keys(auctionDetails).length>0 ? 
     <div className='AuctionDetails'>
       <h2>{auctionDetails.title}</h2>
       <img src={auctionDetails.coverImageURL} alt={auctionDetails.title} />
       <p>{auctionDetails.description}</p>
       <div className="artworks-container">
-        {auctionDetails.artworks.map((artwork) => (
+        {auctionDetails.artworkIncluded.map((artwork) => (
           <div className="artwork-card" key={artwork._id}>
             <img src={artwork.imageURLs[0]} alt={artwork.title} />
             <div className="artwork-title">{artwork.title}</div>
@@ -65,10 +68,11 @@ export default function AuctionDetails () {
       {loggedInUser && 
         <CreateBid auctionId={auctionDetailID} />}
     </div>
+    :
+    <div>LOADING</div>
   );
-}
 
 
-    
-       
+
+}       
 

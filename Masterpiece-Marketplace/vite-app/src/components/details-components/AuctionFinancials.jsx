@@ -74,7 +74,7 @@ export default function AuctionFinancials (props) {
     }
  
     useEffect(() => {
-        sortBids()
+        // sortBids()
     }, [])
 
     useEffect(()=>{
