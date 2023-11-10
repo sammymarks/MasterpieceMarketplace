@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useUserContext } from '../../App';
 import CreateBid from './CreateBid';
 import { BASE_DB_URL } from '../../globals';
+import '../../App.css';
+
 
 
 export default function AuctionDetails () {
@@ -16,6 +18,7 @@ export default function AuctionDetails () {
         title: 'Auction Title',
         description: 'Auction description goes here...',
         coverImageURL: 'https://auction-cover.jpg', 
+        artworks: [], 
       });
 
       useEffect(() => {
@@ -29,6 +32,7 @@ export default function AuctionDetails () {
               title: auctionData.title,
               description: auctionData.description,
               coverImageURL: auctionData.coverImageURL,
+              artworks: auctionData.artworks || [], //artworks array
               
             });
           } catch (error) {
@@ -50,12 +54,22 @@ export default function AuctionDetails () {
      
 
       {/* CreateBid component */}
-      {loggedInUser && (
-        <CreateBid auctionId={auctionId} />
-      )}
+      {loggedInUser && 
+        <CreateBid auctionId={auctionId} />}
 
-
+      <div className="artworks-container">
+        {auctionDetails.artworks.map((artwork) => (
+          <div className="artwork-card" key={artwork._id}>
+            <img src={artwork.imageURLs[0]} alt={artwork.title} />
+            <div className="artwork-title">{artwork.title}</div>
+            {/* Additional artwork details */}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+
+
+    
        
