@@ -64,9 +64,7 @@ export default function AuctionDetails () {
         ))}
       </div>
       {Object.keys(auctionDetails).length>0 && auctionBids ? <AuctionFinancials auctionDetails={auctionDetails} auctionBids={auctionBids}/> : null}
-      {/* CreateBid component */}
-      {loggedInUser && 
-        <CreateBid auctionId={auctionDetailID} />}
+      
     </div>
     :
     <div>LOADING</div>

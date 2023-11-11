@@ -13,6 +13,7 @@ export default function AuctionFinancials (props) {
 
     const auction = props.auctionDetails
     const bids = props.auctionBids
+    console.log("financials bids", bids)
     const start = new Date(auction.startTime)
     const end = new Date(auction.endTime)
 
@@ -25,8 +26,8 @@ export default function AuctionFinancials (props) {
         console.log("getAuctionStatus running")
         if (currentDate<start) {setAuctionStatus("Pending")}
         if (currentDate>start && currentDate<end) {setAuctionStatus("Active")}
+        if (currentDate>end && bids.length===0) {setAuctionStatus("Unresolved")}
         if (currentDate>end && bids.length>0) {setAuctionStatus("Resolved")}
-        if (currentDate>end && bids.length==0) {setAuctionStatus("Unresolved")}
     }
 
     const millisecondsToDateString = (milliseconds) => {
@@ -78,16 +79,18 @@ export default function AuctionFinancials (props) {
             <div className='auction-financials-title'>Auction Details</div> 
             <div className='auction-start-time'><span className='auction-detail-category-title'>Start Date: </span>{start.toUTCString()}</div>
             <div className='auction-end-time'><span className='auction-detail-category-title'>End Date: </span>{end.toUTCString()}</div>
+            <div className='auction-status'><span className='auction-detail-category-title'>Status: </span>{auctionStatus}</div>
+            <div className='auction-reserve'><span className='auction-detail-category-title'>Reserve {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(auction.reservePriceUSD)}</div>
             { auctionStatus == "Pending" ? 
                 <>
-                    <div className='auction-status'><span className='auction-detail-category-title'>Status: </span>{auctionStatus}</div>
-                    <div className='auction-reserve'><span className='auction-detail-category-title'>Reserve {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(auction.reservePriceUSD)}</div>
+                    <div className='auction-time-until'><span className='auction-detail-category-title'>Time Until Start: </span>{millisecondsToDateString(start-currentDate)}</div>
                 </>
             : null}
             { auctionStatus == "Active" ? 
                 <>
-                    <div className='auction-status'><span className='auction-detail-category-title'>Status: </span>{auctionStatus}</div>
-                    <div className='auction-reserve'><span className='auction-detail-category-title'>Reserve {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(auction.reservePriceUSD)}</div>
+                    {/* {loggedInUser && <CreateBid auctionId={auctionDetailID} />} */}
+                    {loggedInUser && <CreateBid />}
+
                     <div className='auction-time-until'><span className='auction-detail-category-title'>Remaining Time: </span>{millisecondsToDateString(end-currentDate)}</div>
                     {bids.length>0 ? 
                         <AuctionBidStats bids={bids} />
@@ -98,16 +101,20 @@ export default function AuctionFinancials (props) {
             : null}
             { auctionStatus == "Resolved" ? 
                 <>
-                    <div className='auction-status'>Status: {auctionStatus}</div>
-                    <div className='auction-reserve'>Reserve {"(USD)"}: { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(auction.reservePriceUSD)}</div>
-
+                    {bids.length>0 ? 
+                        <AuctionBidStats bids={bids} />
+                        :
+                        <div>There are no bids in auction</div>
+                    }
                 </>
             : null}
             { auctionStatus == "Unresolved" ? 
                 <>
-                    <div className='auction-status'>Status: {auctionStatus}</div>
-                    <div className='auction-reserve'>Reserve {"(USD)"}: { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(auction.reservePriceUSD)}</div>
-
+                    {bids.length>0 ? 
+                        <AuctionBidStats bids={bids} />
+                        :
+                        <div>There are no bids in auction</div>
+                    }
                 </>
             : null}
         </div>
