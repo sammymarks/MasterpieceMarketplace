@@ -15,7 +15,7 @@ export default function AuctionDetails () {
   const { loggedInUser, userArtwork, userAuctions, userBids, auctionDetailID, setAuctionDetailID, } = useUserContext();
 
   const [auctionDetails, setAuctionDetails] = useState({});
-  const [auctionBids, setAuctionBids] = useState()
+  const [auctionBids, setAuctionBids] = useState([])
   // const [auctionFinancials, setAuctionFinancials] = useState("financials")
 
   async function getAuctionDetails() {
@@ -52,7 +52,7 @@ export default function AuctionDetails () {
     Object.keys(auctionDetails).length>0 ? 
     <div className='AuctionDetails'>
       <h2>{auctionDetails.title}</h2>
-      <img src={auctionDetails.coverImageURL} alt={auctionDetails.title} />
+      <img className='auction-image' src={auctionDetails.coverImageURL} alt={auctionDetails.title} />
       <p>{auctionDetails.description}</p>
       <div className="artworks-container">
         {auctionDetails.artworkIncluded.map((artwork) => (
