@@ -12,12 +12,12 @@ export default function AuctionBidStats (props) {
     const [bidsSorted, setBidsSorted] = useState(bids.sort((a,b) => b.bidUSD-a.bidUSD))
     const [bidStats, setBidStats] = useState({})
     
-    console.log("bidstatsbids", bids)
+    // console.log("bidstatsbids", bids)
 
     const getBidStats = () => {
         const bidsArray = bidsSorted
         const usersArray = []
-        console.log("bidsArray", bidsArray)
+        // console.log("bidsArray", bidsArray)
         bidsArray.forEach((bid) => {
             if (!usersArray.includes(bid.user.username)) {usersArray.push(bid.user.username)}
         })
@@ -37,8 +37,8 @@ export default function AuctionBidStats (props) {
     return (
         bids.length > 0 ?
             <div className='auction-bid-stats'>
-                <div className='auction-current-bid'><span className='auction-detail-category-title'>Current Bid {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(bidStats.highestBid)} by {bidStats.highestBidUser}</div>
-                <div className='auction-active-bidders'><span className='auction-detail-category-title'>Active Bidders: </span>{bidStats.uniqueBiddersCount}</div>
+                <div className='auction-current-bid'><span className='auction-detail-category-title'>Highest Bid {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(bidStats.highestBid)} by {bidStats.highestBidUser}</div>
+                <div className='auction-active-bidders'><span className='auction-detail-category-title'>Unique Bidders: </span>{bidStats.uniqueBiddersCount}</div>
                 <div className='auction-bid-history'><span className='auction-detail-category-title'>Bid History: </span></div>
                 {
                     bidsSorted ? 

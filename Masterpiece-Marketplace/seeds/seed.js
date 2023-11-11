@@ -165,11 +165,11 @@ const main = async () => {
         bidUSD: "450",
     })
 
-    const CanyonBidThree = await Bid.create({
-        auction: Canyon._id,
-        user: Artist._id,
-        bidUSD: "400.25",
-    })
+    // const CanyonBidThree = await Bid.create({
+    //     auction: Canyon._id,
+    //     user: Artist._id,
+    //     bidUSD: "400.25",
+    // })
 
     const CanyonBidFour = await Bid.create({
         auction: Canyon._id,
