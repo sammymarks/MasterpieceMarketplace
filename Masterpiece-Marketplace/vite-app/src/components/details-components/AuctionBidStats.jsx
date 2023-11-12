@@ -43,7 +43,7 @@ export default function AuctionBidStats (props) {
                 {
                     bidsSorted ? 
                     bidsSorted.map((bid, index) => (
-                        <div className='auction-bid-row'> TEST TEST
+                        <div className='auction-bid-row'>
                             <div className='bid-row-index'>{index++}</div>
                             <div className='bid-row-amount'>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(bid.bidUSD)}</div>
                             <div className='bid-row-user'>{bid.user.username}</div>
