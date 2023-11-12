@@ -1,1 +1,0 @@
-export const BASE_DB_URL = "http://localhost:3001/"
