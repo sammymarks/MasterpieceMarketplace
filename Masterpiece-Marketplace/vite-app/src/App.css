@@ -1,0 +1,320 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+
+
+
+body {
+  background-color: #580147;
+  color: antiquewhite;
+  overflow-x: hidden; 
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 70px 1fr 30px;
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer";
+}
+
+.Header {
+  grid-area: header;
+}
+
+.Main {
+  grid-area: main;
+  overflow: scroll;
+  padding: 10px
+}
+
+.Footer {
+  grid-area: footer;
+  justify-items: center;
+}
+
+
+
+/* footer styling */
+.Footer {
+  background-color: rgb(169, 47, 169);
+  /* bottom: 0; */
+  text-align: center;
+}
+
+.Footer>p {
+  height: 100%;
+}
+
+
+
+/* header styling */
+.Header {
+
+  background-color: #00335f; 
+  color: #fff;
+  padding: 10px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  z-index: 1000; 
+}
+#logo {
+  max-width: 150px; 
+  max-height: 60px; 
+  margin-right: 20px
+}
+
+
+/* hamburger styling */
+.hamburger-icon {
+  user-select: none;
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+.menu-links {
+  display: none;
+}
+
+.menu-links.open {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  position: absolute;
+  top: 69px; 
+  right: 25px;
+  padding: 20px;
+}
+.menu-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 10px 0;
+}
+.menu-links a:hover {
+  color: #f233e8; /* Adjust the color as needed */
+}
+
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.HomePage>img {
+  max-width: 90vw;
+  max-height: 300px;
+  border: #ddd 2px solid;
+}
+
+.HomePage-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.grid-item-card {
+  display: grid;
+  background-color: #333333bc;
+  padding: 15px; /* Adjust the padding to increase the size of #333 card */
+  margin: 10px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+/* myProfile styling */
+.artist-profile-image {
+  max-width: 80%;
+  align-self: center;
+  justify-self: center;
+}
+
+.user-artwork-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto; 
+  justify-content: center;
+}
+
+.user-artwork-grid-item {
+  grid-template-rows:auto;
+  grid-template-columns: 100%;
+  justify-items: center;
+}
+
+
+
+/* search styling */
+.search-results-container {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto; 
+  justify-content: center;
+}
+
+
+.auction-results-grid-item {
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 100px 1fr;
+  grid-template-areas: 
+  "image title"
+  "image artist-name"
+  "image description"
+  "image included";
+}
+
+.artwork-results-grid-item {
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 100px 1fr;
+  grid-template-areas: 
+  "image title"
+  "image artist-name"
+  "image description"
+}
+
+.artist-results-grid-item {
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 100px 1fr;
+  grid-template-areas: 
+  "image artist-name"
+  "image location"
+  "image description"
+}
+
+.search-results-image {
+  grid-area: image;
+  max-width: 80%;
+  align-self: center;
+  justify-self: center;
+}
+
+.search-results-title {
+  grid-area: title;
+}
+
+.search-results-artist-name {
+  grid-area: artist-name;
+  z-index: 1;
+}
+
+.search-results-artist-name:hover {
+  color:darkcyan
+}
+
+.search-results-description {
+  grid-area: description;
+  font-size: 12px;
+}
+
+.search-results-included {
+  grid-area: included;
+  font-size: 12px;
+}
+.search-results-artist-location {
+  grid-area: location;
+  font-size: 12px;
+}
+
+/* //DetailsStyling  */
+/* //Auction */
+.AuctionDetails {
+  /* padding: 20px; */
+  /* background-color: #fff;
+  border: 1px solid #ddd; */
+  /* border-radius: 8px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+  justify-items: center;
+
+}
+
+.auction-details-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+  justify-items: center;
+
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px;
+
+}
+
+.auction-detail-category-title {
+  font-weight: bold;
+  /* display: block; */
+}
+
+.auction-details-label {
+  font-weight: bold;
+}
+.auction-details-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.auction-details-description {
+  font-size: 1rem;
+  font-style: italic;
+
+}
+
+.auction-details-text {
+  font-size: .9rem;
+  justify-self: left;
+}
+
+.auction-image {
+  max-width: 90%;
+  border: #f233e8 solid 2px;
+}
+
+.auction-bid-submit {
+  border: #333 solid 1px;
+}
+
+
+.artworks-container {
+ display: flex;
+ justify-content: space-around;
+ flex-wrap: wrap;
+}
+
+
+.artwork-card {
+ border: 1px solid #ddd;
+ padding: 10px;
+ margin: 10px;
+ text-align: center;
+}
+
+
+.artwork-card img {
+ max-width: 100%;
+ height: auto;
+}
+
+
+.artwork-title {
+ font-weight: bold;
+}
+
+
+
