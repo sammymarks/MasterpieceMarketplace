@@ -6,12 +6,11 @@ import { useUserContext } from '../App'; // Import the user context
 
 
 const Header = () => {
-  const { loggedInUser } = useUserContext(); // Get loggedInUser from the context
+  const { loggedInUser } = useUserContext();
   const [profilePic, setProfilePic] = useState('');
 
   useEffect(() => {
     if (loggedInUser) {
-      // Fetch the profile picture URL from localhost:3001/users
       const fetchProfilePic = async () => {
         try {
           const response = await axios.get(`http://localhost:3001/users/${loggedInUser._id}`);
@@ -33,9 +32,10 @@ const Header = () => {
   };
 
   const profilePicStyle = {
-    borderRadius: '50%', // Make it circular
-    width: '50px', // Adjust the size as needed
+    borderRadius: '50%',
+    width: '50px',
     height: '50px',
+    cursor: 'pointer', // Add a cursor to indicate it's clickable
   };
 
   return (
@@ -51,11 +51,13 @@ const Header = () => {
       </Link>
 
       {loggedInUser && profilePic && (
-        <img
-          src={profilePic}
-          alt="Profile Pic"
-          style={profilePicStyle}
-        />
+        <Link to="/profile">
+          <img
+            src={profilePic}
+            alt="Profile Pic"
+            style={profilePicStyle}
+          />
+        </Link>
       )}
 
       <Nav />
@@ -64,3 +66,4 @@ const Header = () => {
 };
 
 export default Header;
+
