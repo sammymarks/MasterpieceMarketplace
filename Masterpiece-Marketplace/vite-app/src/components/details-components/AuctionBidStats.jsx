@@ -37,13 +37,13 @@ export default function AuctionBidStats (props) {
     return (
         bids.length > 0 ?
             <div className='auction-bid-stats'>
-                <div className='auction-current-bid'><span className='auction-detail-category-title'>Highest Bid {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(bidStats.highestBid)} by {bidStats.highestBidUser}</div>
-                <div className='auction-active-bidders'><span className='auction-detail-category-title'>Unique Bidders: </span>{bidStats.uniqueBiddersCount}</div>
-                <div className='auction-bid-history'><span className='auction-detail-category-title'>Bid History: </span></div>
+                <div className='auction-details-text auction-current-bid'><span className='auction-detail-category-title'>Highest Bid {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(bidStats.highestBid)} by {bidStats.highestBidUser}</div>
+                <div className='auction-details-text auction-active-bidders'><span className='auction-detail-category-title'>Unique Bidders: </span>{bidStats.uniqueBiddersCount}</div>
+                <div className='auction-details-text auction-bid-history'><span className='auction-detail-category-title'>Bid History: </span></div>
                 {
                     bidsSorted ? 
                     bidsSorted.map((bid, index) => (
-                        <div className='auction-bid-row'> TEST TEST
+                        <div className='auction-bid-grid'>
                             <div className='bid-row-index'>{index++}</div>
                             <div className='bid-row-amount'>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(bid.bidUSD)}</div>
                             <div className='bid-row-user'>{bid.user.username}</div>

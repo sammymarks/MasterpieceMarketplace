@@ -49,12 +49,8 @@ export default function HomePage() {
 
   return (
     <div className="HomePage">
-      <div>I am HomePage</div>
+      <div className='HomePage-title'>Masterpiece Marketplace</div>
       <h3>A new and intuitive way to discover and bid on Art.</h3>
-      {currentImages.map((image, index) => (
-        <img key={index} src={image} alt={`Artwork ${index + 1}`} />
-      ))}
-
       {!loggedInUser && (
         <div className="button-container">
           <button className="login-button">
@@ -65,6 +61,12 @@ export default function HomePage() {
           </button>
         </div>
       )}
+      <div>Featured Artwork:</div>
+      {currentImages.map((image, index) => (
+        <img key={index} src={image} alt={`Artwork ${index + 1}`} />
+      ))}
+
+      
     </div>
   )
 }

@@ -25,9 +25,6 @@ function App() {
   const [searchText, setSearchText] = useState(null)
 
   
-
-  
-  
   return (
     <div className='App'>
      <UserContext.Provider
