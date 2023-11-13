@@ -76,9 +76,7 @@ export default function CreatedAuctions () {
                         }</div>
                         {/* <div className='user-auctions-bids'><span className='card-topic'>Bid Count: </span>Placeholder</div> */}
                         <div className='artist-profile-CRUD-buttons'>
-                            <button
-                                onClick={() => goToAuctionDetail(item._id)}
-                            >Details</button>
+                            <button onClick={() => navigate(`/auction-details/${item._id}`)}>Details</button>
                             <button>Edit</button>
                             <button>Delete</button>
                         </div>
