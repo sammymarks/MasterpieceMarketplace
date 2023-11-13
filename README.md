@@ -107,7 +107,31 @@ Four Models:
 ![Entity Relationship Diagram](./ReadMe%20Assets/ERD.png)
 
 ## Demo
-10 minutes
+10 minutes - Test Cases:
+1. Without logging in…
+    1. Search for artist, get to details
+    1. Search for artwork, get to details
+    1. Search for auction, get to details
+1. Open App, login as SammyfromEtsy
+    1. See my artwork 
+    1. Edit description
+    1. See Artwork Details
+    1. Delete Artwork
+    1. Upload new artwork (https://images.unsplash.com/photo-1493612276216-ee3925520721?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fHww)
+    1. See my auctions
+    1. Create/delete an auction
+    1. Talking point - these are not active auctions
+1. Refresh App (logout), LogIn as Blen(Artist), Go to artist profile
+    1. See my artwork 
+    1. See my auctions (click on details)
+    1. Show details
+    1. Place new bid on own auction
+1. Refresh App (logout) login as Tahmid-Buyer
+    1. Search for auction (sunflowers)
+    1. Place bid 
+    1. Change username
+
+
 
 ## Functionality and Code Highlights
 
