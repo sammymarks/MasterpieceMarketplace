@@ -51,20 +51,25 @@ export default function AuctionDetails () {
   return (
     Object.keys(auctionDetails).length>0 ? 
     <div className='AuctionDetails'>
-      <h2>{auctionDetails.title}</h2>
-      <img className='auction-image' src={auctionDetails.coverImageURL} alt={auctionDetails.title} />
-      <p>{auctionDetails.description}</p>
-      <div className="artworks-container">
-        {auctionDetails.artworkIncluded.map((artwork) => (
-          <div className="artwork-card" key={artwork._id}>
-            <img src={artwork.imageURLs[0]} alt={artwork.title} />
-            <div className="artwork-title">{artwork.title}</div>
-            {/* Additional artwork details */}
-          </div>
-        ))}
+      <div className='auction-details-container auction-overview'>
+        <div className='auction-details-label'>~Auction Overview~</div>
+        <div className='auction-details-title'>{auctionDetails.title}</div>
+        <div className='auction-details-description'>{auctionDetails.description}</div>
+        <img className='auction-image' src={auctionDetails.coverImageURL} alt={auctionDetails.title} />
+      </div>
+      <div className='auction-details-container auction-artwork'>
+        <div className='auction-details-label'>~Included Artwork~</div>
+        <div className="artworks-container"> 
+          {auctionDetails.artworkIncluded.map((artwork) => (
+            <div className="artwork-card" key={artwork._id}>
+              <img src={artwork.imageURLs[0]} alt={artwork.title} />
+              <div className="artwork-title">{artwork.title}</div>
+              {/* Additional artwork details */}
+            </div>
+          ))}
+        </div>
       </div>
       {Object.keys(auctionDetails).length>0 && auctionBids ? <AuctionFinancials auctionDetails={auctionDetails} auctionBids={auctionBids}/> : null}
-      
     </div>
     :
     <div>LOADING</div>

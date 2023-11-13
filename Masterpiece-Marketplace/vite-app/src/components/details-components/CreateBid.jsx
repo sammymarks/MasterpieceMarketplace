@@ -34,8 +34,8 @@ export default function CreateBid() {
  
 
 return (
-    <div>
-      <h3>Place a Bid</h3>
+    <div className='auction-details-container' >
+      <div className='auction-details-label'>~Place a Bid~</div>
       <form onSubmit={handleBidSubmit}>
         <input
           type="number"
@@ -45,7 +45,7 @@ return (
           onChange={(e) => setBidAmount(e.target.value)}
           required
         />
-        <button type="submit">Place Bid</button>
+        <button className='auction-bid-submit' type="submit">Place Bid</button>
       </form>
     </div>
   );

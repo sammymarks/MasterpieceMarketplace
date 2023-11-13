@@ -76,11 +76,15 @@ export default function AuctionFinancials (props) {
 
     return (
         <div className='auction-financials'>
-            <div className='auction-financials-title'>Auction Details</div> 
-            <div className='auction-start-time'><span className='auction-detail-category-title'>Start Date: </span>{start.toUTCString()}</div>
-            <div className='auction-end-time'><span className='auction-detail-category-title'>End Date: </span>{end.toUTCString()}</div>
-            <div className='auction-status'><span className='auction-detail-category-title'>Status: </span>{auctionStatus}</div>
-            <div className='auction-reserve'><span className='auction-detail-category-title'>Reserve {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(auction.reservePriceUSD)}</div>
+            <div className='auction-details-container auction-details-stats'>
+                <div className='auction-details-label'>~Auction Details~</div>
+                <div className='auction-details-text auction-start-time'><span className='auction-detail-category-title'>Start Date: </span>{start.toUTCString()}</div>
+                <div className='auction-details-text auction-end-time'><span className='auction-detail-category-title'>End Date: </span>{end.toUTCString()}</div>
+                <div className='auction-details-text auction-status'><span className='auction-detail-category-title'>Status: </span>{auctionStatus}</div>
+                <div className='auction-details-text auction-reserve'><span className='auction-detail-category-title'>Reserve {"(USD)"}: </span>{ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', }).format(auction.reservePriceUSD)}</div>
+            </div>
+            <div className='auction-details-container auction-details-history' >
+
             { auctionStatus == "Pending" ? 
                 <>
                     <div className='auction-time-until'><span className='auction-detail-category-title'>Time Until Start: </span>{millisecondsToDateString(start-currentDate)}</div>
@@ -91,7 +95,7 @@ export default function AuctionFinancials (props) {
                     {/* {loggedInUser && <CreateBid auctionId={auctionDetailID} />} */}
                     {loggedInUser && <CreateBid />}
 
-                    <div className='auction-time-until'><span className='auction-detail-category-title'>Remaining Time: </span>{millisecondsToDateString(end-currentDate)}</div>
+                    <div className=' auction-details-text auction-time-until'><span className='auction-detail-category-title'>Remaining Time: </span>{millisecondsToDateString(end-currentDate)}</div>
                     {bids.length>0 ? 
                         <AuctionBidStats bids={bids} />
                         :
@@ -117,6 +121,8 @@ export default function AuctionFinancials (props) {
                     }
                 </>
             : null}
+            </div>
+
         </div>
     )
 }

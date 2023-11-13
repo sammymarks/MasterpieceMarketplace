@@ -8,7 +8,9 @@ import { BASE_DB_URL } from '../../globals';
 
 export default function CreatedAuctions () {
 
-    const { loggedInUser, userArtwork, setUserArtwork, userAuctions, setUserAuctions, userBids } = useUserContext();
+    const { loggedInUser, userArtwork, setUserArtwork, userAuctions, setUserAuctions, userBids, auctionDetailID, setAuctionDetailID } = useUserContext();
+    const navigate = useNavigate();
+
 
     const getUserAuctions = async () => {
         const url = `${BASE_DB_URL}auctions/users/${loggedInUser._id}`
@@ -27,6 +29,12 @@ export default function CreatedAuctions () {
         if (current<start) {console.log("not started"); return "Not Started"}
         if (current>end && isResolved) {console.log("resolved"); return "Complete and Resolved"}
         if (current>end && !isResolved) {console.log("resolved"); return "Complete and Not Resolved"}
+    }
+
+    const goToAuctionDetail= (id) => {
+        console.log("auctionID". id)
+        setAuctionDetailID(id)
+        navigate('/auction-details')
     }
 
     useEffect(() => {
@@ -48,7 +56,6 @@ export default function CreatedAuctions () {
                     <div 
                         className='user-auctions-grid-item grid-item-card' 
                         key={item._id} 
-                        // onClick={() => goToArtworkDetail(item._id)}
                     >
                         <div className='user-auctions-title'><span className='card-topic'>Title: </span>{item.title}</div>
                         <img className='user-auctions-image artist-profile-image' src={item.coverImageURL}></img>
@@ -69,7 +76,11 @@ export default function CreatedAuctions () {
                         }</div>
                         {/* <div className='user-auctions-bids'><span className='card-topic'>Bid Count: </span>Placeholder</div> */}
                         <div className='artist-profile-CRUD-buttons'>
-                            <button onClick={() => navigate(`/auction-details/${item._id}`)}>Details</button>
+
+                            <button
+                                onClick={() => goToAuctionDetail(item._id)}
+                            >Details</button>
+
                             <button>Edit</button>
                             <button>Delete</button>
                         </div>
