@@ -82,6 +82,49 @@ body {
   font-size: 24px;
   margin-right: 10px;
   padding-right: 10px;
+  transition: color 0.3s ease; 
+}
+
+.hamburger-icon:hover {
+  color: #f233e8; 
+}
+
+.menu-links {
+  display: none;
+}
+
+.menu-links.open {
+  display: flex;
+  flex-direction: column;
+  background-color: #133b79f0;
+  position: absolute;
+  top: 69px;
+  right: 25px;
+  padding: 20px;
+  border-radius: 10px; 
+  border: 2px solid #f233e8; 
+}
+
+.menu-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 10px 0;
+  transition: color 0.3s ease; 
+}
+.menu-links a:hover,
+.menu-links a:active {
+  color: #f233e8;
+  border-bottom: 2px solid #f233e8; 
+}
+
+/* .hamburger-icon {
+  user-select: none;
+  display: block;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+  padding-right: 10px;
 }
 .menu-links {
   display: none;
@@ -103,8 +146,8 @@ body {
   margin: 10px 0;
 }
 .menu-links a:hover {
-  color: #f233e8; /* Adjust the color as needed */
-}
+  color: #f233e8; 
+} */
 
 .HomePage {
   display: flex;
@@ -156,7 +199,87 @@ body {
 
 
 /* search styling */
+/* Existing styles for .search-results-container and .search-results-grid-item remain unchanged */
+
+/* ... */
+
+
+.Discover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  padding: 40px; 
+}
+
+.searchbar-container {
+  margin-bottom: 190px;
+  text-align: center;
+}
+select {
+  width: 100%; 
+  padding: 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+  margin-bottom: 10px; 
+  background-color: #d1d6ed79; 
+  color: #030303; 
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-input {
+  width: 180%; 
+  padding: 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 10px; 
+  margin-bottom: 10px; 
+  background-color: #96bfe8; 
+  color: #333; 
+}
+
+#submit {
+  margin-top: 5px; 
+  cursor: pointer; 
+  width: 100%; 
+  padding: 15px; 
+  border: 1px solid #e0a2f9; 
+  border-radius: 10px; 
+  background-color: #1b4b7ebe; 
+  color: #ebc8ee; 
+}
+#submit:hover {
+  background-color: #103c6a; 
+}
+
+.search-results-message {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .search-results-container {
+  width: 100%;
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+/* Media query for small screens (phones) */
+@media (max-width: 600px) {
+  .Discover {
+    padding: 5px; /* Adjust padding for small screens */
+  }
+
+  .search-results-container {
+    max-width: 100%; /* Full width on small screens */
+  }
+}
+
+/* .search-results-container {
   display: flex;
   flex-wrap: wrap;
   overflow: auto; 
@@ -224,7 +347,7 @@ body {
 .search-results-artist-location {
   grid-area: location;
   font-size: 12px;
-}
+} */
 
 /* //DetailsStyling  */
 /* //Auction */
