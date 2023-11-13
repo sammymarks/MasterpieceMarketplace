@@ -52,11 +52,14 @@ const Header = () => {
 
       {loggedInUser && profilePic && (
         <Link to="/profile">
+          <div className='pfp'>
           <img
             src={profilePic}
             alt="Profile Pic"
             style={profilePicStyle}
+            id='pfp'
           />
+          </div>
         </Link>
       )}
 

@@ -9,6 +9,6 @@ export default function UserArtistInfo () {
     const { loggedInUser, userArtwork, userAuctions, userBids } = useUserContext();
 
     return (
-        <div className='UserArtistInfo'> I am UserArtistInfo </div>
+        <div className='UserArtistInfo'>  </div>
     )
 }

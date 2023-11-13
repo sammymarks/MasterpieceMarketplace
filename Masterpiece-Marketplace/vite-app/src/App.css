@@ -9,8 +9,10 @@
 
 
 body {
-  background-color: #580147;
+  background-color: #93B1FF;
   color: antiquewhite;
+  -webkit-text-stroke: rgb(56, 56, 56);
+  -webkit-text-stroke-width: .6px;
   overflow-x: hidden; 
 }
 
@@ -45,8 +47,7 @@ body {
 
 /* footer styling */
 .Footer {
-  background-color: rgb(169, 47, 169);
-  /* bottom: 0; */
+  background-color: #00335f;
   text-align: center;
 }
 
@@ -70,7 +71,11 @@ body {
 #logo {
   max-width: 150px; 
   max-height: 60px; 
-  margin-right: 20px
+  margin-right: 20px;
+}
+
+.pfp{
+  padding-right: 90px;
 }
 
 
@@ -119,10 +124,29 @@ body {
   border: #ddd 2px solid;
 }
 
+/* .HomePage-title {
+  font-weight: bold;
+  font-size: 20px;
+
+} */
+
 .HomePage-title {
   font-weight: bold;
   font-size: 20px;
 }
+
+  .featured-artwork-container {
+    display: flex; /* Use flexbox to arrange items in a horizontal line */
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+  }
+
+  /* Style for each featured artwork image */
+  .featured-artwork-image {
+    max-width: 30vw; /* Ensure images do not exceed their container width */
+    margin: 0 10px; /* Add some horizontal spacing between images */
+    border: 1px solid rgb(118, 91, 61);
+  }
 
 .grid-item-card {
   display: grid;
@@ -134,6 +158,10 @@ body {
 }
 
 /* myProfile styling */
+.profile-category {
+  font-size: 25px;
+}
+
 .artist-profile-image {
   max-width: 80%;
   align-self: center;
@@ -317,4 +345,18 @@ body {
 }
 
 
+.UserProfile {
+  background-color: #00335f;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: fit-content;
+  top: 50%;
+  left: 40%;
+  position: relative;
+  transform: translateY(-50%);
+  
+}
 

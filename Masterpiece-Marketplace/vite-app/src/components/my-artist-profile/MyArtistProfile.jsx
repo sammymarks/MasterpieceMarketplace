@@ -19,7 +19,7 @@ export default function MyArtistProfile () {
     return (
         <div className='MyArtistProfile'> 
             
-            <div> Welcome USERPLACEHOLDER </div>
+            <div>  </div>
             
             <div className='profile-category'>Create</div>
             <button 

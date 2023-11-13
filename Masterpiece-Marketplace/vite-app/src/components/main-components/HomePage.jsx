@@ -62,9 +62,12 @@ export default function HomePage() {
         </div>
       )}
       <div>Featured Artwork:</div>
+      <div className='featured-artwork-container'>
       {currentImages.map((image, index) => (
-        <img key={index} src={image} alt={`Artwork ${index + 1}`} />
+        <img key={index} src={image} alt={`Artwork ${index + 1}`} className="featured-artwork-image" />
       ))}
+      </div>
+
 
       
     </div>

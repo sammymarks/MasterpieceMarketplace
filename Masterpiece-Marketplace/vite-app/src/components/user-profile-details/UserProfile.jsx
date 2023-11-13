@@ -18,7 +18,7 @@ export default function UserProfile () {
 
     return (
         <div className='UserProfile'> 
-            <div>I am UserProfile</div>
+            <div></div>
             <UserInfo />
             <UserArtistInfo />
         </div>
