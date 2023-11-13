@@ -16,8 +16,6 @@ body {
   overflow-x: hidden; 
 }
 
-
-
 .App {
   height: 100vh;
   width: 100vw;
@@ -50,7 +48,6 @@ body {
 /* footer styling */
 .Footer {
   background-color: #00335f;
-  /* bottom: 0; */
   text-align: center;
 }
 
@@ -80,9 +77,6 @@ body {
 .pfp{
   padding-right: 90px;
 }
-
-
-
 
 
 /* hamburger styling */
@@ -129,6 +123,12 @@ body {
   max-height: 300px;
   border: #ddd 2px solid;
 }
+
+/* .HomePage-title {
+  font-weight: bold;
+  font-size: 20px;
+
+} */
 
 .HomePage-title {
   font-weight: bold;
@@ -359,5 +359,4 @@ body {
   transform: translateY(-50%);
   
 }
-
 
